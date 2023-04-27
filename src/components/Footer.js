@@ -37,7 +37,8 @@ export const Footer = () => {
 const Contianer = styled(Container)`
   border-top: 1px solid #5f5f5f;
   min-height: 120px;
-  line-height: 120px;
+  padding-top: 41px;
+  padding-bottom: 72px;
 `;
 
 const SocialImage = styled(Image)`
@@ -48,4 +49,7 @@ const FooterText = styled.p`
   color: #ffff;
   font-size: 18px;
   font-weight: 100;
+  @media (max-width:390px){
+    font-size: 16px;
+  }
 `;

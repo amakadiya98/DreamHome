@@ -69,6 +69,15 @@ const Container = styled.div`
 
 const SelectStyled = styled(Select)`
   border: 1px solid #fff;
+  position: relative;
+  // :after{
+  //   content: "";
+  //   background-image: url('../assets/arrowdownDropdown.png');
+  //   position: absolute;
+  //   width: 8px;
+  //   height: 16px;
+  //   right: 15px;
+  // }
 `;
 
 const FileDragAndDrop = styled.div`
@@ -83,10 +92,16 @@ const FileDragAndDrop = styled.div`
 
 const UploadButton = styled(Button)`
   height: 46px;
-  background: #109797;
+  background: linear-gradient(107.95deg, #109797 30.24%, #24B3B3 70.79%);
+  border-radius: 5px;
   text-transform: none;
   color: #fff;
   padding: 0px 15px;
+  :hover{
+    background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.42) 25.71%, rgba(8, 86, 86, 0.42) 80.11%);
+    border: 1px solid #0DB3B3;
+    border-radius: 2px;
+  }
 `;
 
 const DragInfoText = styled.p`
@@ -101,4 +116,24 @@ const SubmitButton = styled(Button)`
   color: #0db2b2;
   padding: 0px 15px;
   margin-top: 1rem;
+  position: relative;
+  :hover{
+    background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.42) 25.71%, rgba(8, 86, 86, 0.42) 80.11%);
+    border: 1px solid #0DB3B3;
+    border-radius: 2px;
+    :after{
+      content: "";
+      display: none;
+    }
+  }
+  :after{
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 46px;
+    background: #0DB3B3;
+    filter: blur(12.5px);
+    border-radius: 5px;
+    z-index: -1;
+  }
 `;

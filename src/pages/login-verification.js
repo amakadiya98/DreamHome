@@ -49,6 +49,7 @@ const ResendText = styled.p`
 
 const HightLightText = styled.span`
   color: #0db2b2;
+  text-decoration: underline;
 `;
 
 const InputLabel = styled.p`
@@ -92,14 +93,19 @@ const Container = styled.div`
 `;
 
 const ContinueButton = styled(Button)`
-  background: #109797;
   color: #ffff;
   font-size: 18px;
   text-decoration: none;
   height: 52px;
   padding: 0rem 3rem;
-
+  background: linear-gradient(107.95deg, #109797 30.24%, #24B3B3 70.79%);
+  border-radius: 5px
   border-radius: 5px;
   text-transform: none;
   margin: 1rem 0;
+  :hover{
+    background: transparent;
+    border: 1px solid #0DB3B3;
+    border-radius: 5px;
+  }
 `;

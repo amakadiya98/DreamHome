@@ -1,17 +1,15 @@
 import * as React from "react";
+import Container from "@mui/material/Container";
+
 import { MainHeader } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import styled from "@emotion/styled";
 
 export default function MainContainer({ children }) {
   return (
-    <Body>
+    <Container maxWidth="lg">
       <MainHeader />
-        {children}
+      {children}
       <Footer />
-    </Body>
+    </Container>
   );
 }
-
-
-const Body = styled.div``;

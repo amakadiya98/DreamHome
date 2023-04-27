@@ -9,9 +9,7 @@
 }
 
 body {
-  background-color: #1E1E1E;
-  margin: 0;
-  padding: 0;
+  background: #0E1A1F;
 }
 
 h1,
@@ -21,5 +19,5 @@ h3,
 h5,
 p {
   margin: 0;
-  font-family: "Quicksand";
+  font-family: Quicksand;
 }

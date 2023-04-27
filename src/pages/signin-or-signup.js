@@ -59,8 +59,15 @@ export default function SignInGoogle() {
 const SignInHeader = styled.h1`
   text-align: center;
   font-size: 82px;
+  font-family: 'Gilroy-Bold';
   color: #fff;
   margin: 8rem 0 2rem;
+  @media (max-width:768px){
+    font-size: 60px;
+  }
+  @media (max-width:425px){
+    font-size:40px
+  }
 `;
 
 const SignInLabel = styled.p`
@@ -68,7 +75,14 @@ const SignInLabel = styled.p`
   color: #ffffff;
   margin: 0px 5rem;
   text-align: center;
-  margin-top: 1rem;
+  width: 66%;
+  margin : 1rem auto 0;
+  @media (max-width:768px) {
+    width:75%;
+  }
+  @media (max-width:425px){
+    width:100%;
+  }
 `;
 
 const Container = styled.div`
@@ -84,7 +98,6 @@ const SingInButton = styled(Link)`
   color: #ffff;
   font-size: 18px;
   text-decoration: none;
-  border: 1px solid #0db2b2;
   height: 62px;
   line-height: 62px;
   padding: 0 25px;
@@ -92,4 +105,10 @@ const SingInButton = styled(Link)`
   font-family: Quicksand-Regular;
   width: 15rem;
   margin: 1rem 0;
-`;
+  background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.42) 25.71%, rgba(8, 86, 86, 0.42) 80.11%);
+  border: 1px solid #0DB3B3;
+  border-radius: 5px;
+  :hover{
+    background: linear-gradient(107.95deg, #109797 30.24%, #24B3B3 70.79%);
+  }
+`;                                                                              
