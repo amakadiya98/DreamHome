@@ -13,6 +13,7 @@ import tiktok from "@/assets/tiktok.png";
 
 export const Footer = () => {
   return (
+    <FooterMainPart>
     <Contianer>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
@@ -31,13 +32,19 @@ export const Footer = () => {
         </Grid>
       </Grid>
     </Contianer>
+    </FooterMainPart>
   );
 };
+const FooterMainPart = styled.div`
+  background-color: #0D1A1E;
+  padding-top: 8rem;
+`;
 
 const Contianer = styled(Container)`
   border-top: 1px solid #5f5f5f;
   min-height: 120px;
   line-height: 120px;
+  
 `;
 
 const SocialImage = styled(Image)`
