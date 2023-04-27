@@ -1,11 +1,15 @@
 import Link from "next/link";
-
+import * as React from 'react';
 import styled from "@emotion/styled";
 import { Container, Grid } from "@mui/material";
 import Image from "next/image";
-
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
 import userFeeback from "@/assets/userFeeback.png";
 import plusCircle from "@/assets/plusCircle.png";
+import minusIcon from "@/assets/minusIcon.png"
 import normal1 from "@/assets/normal1.png";
 import normal2 from "@/assets/normal2.png";
 import img3601 from "@/assets/3601.png";
@@ -20,10 +24,34 @@ import Rectangle188 from "@/assets/Rectangle188.png";
 import Rectangle192 from "@/assets/Rectangle192.png";
 import Rectangle193 from "@/assets/Rectangle193.png";
 import Rectangle194 from "@/assets/Rectangle194.png";
-
+import connectingArrow from "@/assets/connetingArrow.png";
 import { faqQuestions } from "../../constant";
 
 export const Home = () => {
+
+  const images = [
+    {
+      src: Rectangle196,
+      alt: 'Slide 1',
+    },
+    {
+      src: Rectangle195,
+      alt: 'Slide 2',
+    },
+    {
+      src: Rectangle197,
+      alt: 'Slide 3',
+    },
+    {
+      src: Rectangle184,
+      alt: 'Slide 4'
+    },
+    {
+      src: Rectangle185,
+      alt: 'Slide 5'
+    }
+  ];
+
   return (
     <ContainerWrapper>
       <TopSection>
@@ -212,9 +240,7 @@ export const Home = () => {
             <Grid container item xs={12} sm={5}>
               <Grid item>
                 <SampleOutputTag>
-                  More Options,
-                  <br />
-                  Better Choices
+                  More Options, Better Choices
                 </SampleOutputTag>
               </Grid>
               <Grid item>
@@ -230,12 +256,15 @@ export const Home = () => {
             </Grid>
             <Grid container item xs={12} sm={7}>
               <CarasoleContainer>
+                <BeforeText><Liner />Before</BeforeText>
                 <Image src={Rectangle175} />
                 <Image196 src={Rectangle196} />
                 <Image195 src={Rectangle195} />
                 <Image197 src={Rectangle197} />
                 <Image184 src={Rectangle184} />
                 <Image185 src={Rectangle185} />
+                <Image200 src={connectingArrow} />
+                <AfterText><Liner />After</AfterText>
               </CarasoleContainer>
             </Grid>
           </Grid>
@@ -266,21 +295,21 @@ export const Home = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item container xs={12} sm={6}>
-              <DesignConsistency>
-                Consistency in Design
-                <br />
-                Made Easy
-              </DesignConsistency>
-              <ConsistencyText>
-                If you loved the design of your previous room and want to maintain
-                the same theme setting for multiple rooms in your house, our Match
-                Style feature is here to help. Simply click the button after
-                generating your room photo, and our Al- powered tool will generate
-                similar style options for your other rooms. This feature not only
-                saves you time, but it also ensures consistency in design,
-                especially if you're an interior designer.
-              </ConsistencyText>
+            <Grid item container xs={12} sm={6} style={{ alignItems: 'center' }}>
+              <DesignTextInfo>
+                <DesignConsistency>
+                  Consistency in Design Made Easy
+                </DesignConsistency>
+                <ConsistencyText>
+                  If you loved the design of your previous room and want to maintain
+                  the same theme setting for multiple rooms in your house, our Match
+                  Style feature is here to help. Simply click the button after
+                  generating your room photo, and our Al- powered tool will generate
+                  similar style options for your other rooms. This feature not only
+                  saves you time, but it also ensures consistency in design,
+                  especially if you're an interior designer.
+                </ConsistencyText>
+              </DesignTextInfo>
             </Grid>
           </Grid>
         </Container>
@@ -288,11 +317,30 @@ export const Home = () => {
       <FAQContainer>
         <Container maxWidth='lg'>
           <FAQTag>FAQ</FAQTag>
-          {faqQuestions.map((question, index) => (
+          {/* {faqQuestions.map((question, index) => (
             <FAQCard key={index}>
               <FAQQuestion>{question}</FAQQuestion>
               <FAQToggle src={plusCircle} />
             </FAQCard>
+          ))} */}
+          {faqQuestions.map((question, index) => (
+            <DarkBlueAccordion>
+              <AccordionSummary
+                expandIcon={
+                  <ExpandIcon
+                    src={plusCircle}
+                    alt={"collapse" }
+                  />
+                }
+                aria-controls={index + " -" + "content"}
+                id={index + " -" + "header"}
+              >
+                <QuestionTypography>{question.que}</QuestionTypography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <AnswerTypography>{question.summary}</AnswerTypography>
+              </AccordionDetails>
+            </DarkBlueAccordion>
           ))}
         </Container>
       </FAQContainer>
@@ -333,18 +381,18 @@ export const Home = () => {
       <FooterWrapper>
         <Container maxWidth='lg'>
           <FooterBanner>
-          <BottomLeftOverlay />
-          <TopRigthOverlay />
-          <FooterTag>Ready to design your dream room?</FooterTag>
-          <FooterSubTag>
-            Try our free Al room design tool and experience the power of
-            Al-powered
-            <br />
-            interior design software today!
-          </FooterSubTag>
-          <DesignDreamRoom href="/room-design">
-            Design your dream room
-          </DesignDreamRoom>
+            <BottomLeftOverlay />
+            <TopRigthOverlay />
+            <FooterTag>Ready to design your dream room?</FooterTag>
+            <FooterSubTag>
+              Try our free Al room design tool and experience the power of
+              Al-powered
+              <br />
+              interior design software today!
+            </FooterSubTag>
+            <DesignDreamRoom href="/room-design">
+              Design your dream room
+            </DesignDreamRoom>
           </FooterBanner>
         </Container>
       </FooterWrapper>
@@ -352,7 +400,84 @@ export const Home = () => {
   );
 };
 
+const DarkBlueAccordion = styled(Accordion)`
+  margin: 10px 0;
+  border-radius: 10px !important;
+  background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.42) 25.71%, rgba(8, 86, 86, 0.42) 80.11%);
+  padding: 36px 52px;
+  padding-right: auto;
+`;
+
+const QuestionTypography = styled(Typography)`
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: left;
+  color: #fff;
+`;
+
+const AnswerTypography = styled(Typography)`
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: left;
+  color: #FFFFFF;
+`;
+
+const ExpandIcon = styled(Image)`
+  width: 40px;
+  height: 40px;
+`;
+
+const DesignTextInfo = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+`
+
+const BeforeText = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: -5%;
+  left: 38%;
+  color: #fff;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px; 
+`;
+const Liner = styled.span`
+  display: block;
+  width: 3px;
+  height: 20px;
+  background-color: #0DB3B3;
+`;
+const AfterText = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  bottom: -42%;
+  right: -13%;
+  color: #fff;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px; 
+`;
+
 const FooterWrapper = styled.div``;
+
 const TopRigthOverlay = styled.div`
   position: absolute;
   top: -264px;
@@ -595,22 +720,30 @@ width: 95%;
 `;
 
 const OutputSample = styled.div`
-  padding: 14rem 0;
-  padding-top: 5rem;
+  padding: 5rem 0;
+  margin-bottom: 9rem;
 `;
 
 const SampleOutputTag = styled.p`
   color: #fff;
-  font-size: 35px;
-  font-weight: bold;
+  font-size: 36px;
+  line-height: 45px;
+  font-weight: 700;
+  font-family: "Gilroy-Bold";
   text-align: left;
   margin-top: 4rem;
+  margin-bottom: 1rem;
+  width: 55%;
 `;
 
 const SampleOutputDescription = styled.p`
-  font-size: 18px;
-  color: #fff;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
   text-align: left;
+  color: #fff;
 `;
 
 const CarasoleContainer = styled.div`
@@ -642,6 +775,11 @@ const Image184 = styled(Image)`
   left: 86%;
   z-index: 6001;
 `;
+const Image200 = styled(Image)`
+  position: absolute;
+  top: 25%;
+  right: -15%;
+`;
 
 const Image185 = styled(Image)`
   position: absolute;
@@ -654,16 +792,22 @@ const BeforeAfterContainer = styled.div`
 `;
 
 const DesignConsistency = styled.p`
+  font-family: 'Gilroy-Bold';
+  font-style: normal;
+  font-weight: 700;
   font-size: 36px;
-  font-weight: bold;
+  line-height: 45px;
   color: #fff;
-  margin-top: 10rem;
   text-align: left;
-  height: 0;
+  width: 70%;
 `;
 
 const ConsistencyText = styled.p`
-  font-size: 18px;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
   color: #fff;
   text-align: left;
 `;
@@ -680,10 +824,14 @@ const FAQContainer = styled.div`
   padding: 4rem 0;
 `;
 
-const FAQTag = styled.p`
+const FAQTag = styled.h5`
+  font-family: 'Gilroy-Bold';
+  font-style: normal;
+  font-weight: 700;
   font-size: 52px;
+  line-height: 64px;
+  text-align: center;
   color: #fff;
-  font-weight: bold;
   margin-bottom: 2rem;
 `;
 
