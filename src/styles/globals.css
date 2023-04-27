@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Quicksand";
+  src: url("../fonts/Quicksand-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Gilroy-Bold";
+  src: url("../fonts/Gilroy-Bold.woff");
+}
+
+body {
+  background-color: #1E1E1E;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h3,
+h5,
+p {
+  margin: 0;
+  font-family: "Quicksand";
+}
