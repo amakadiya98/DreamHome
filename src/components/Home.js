@@ -20,13 +20,13 @@ import Rectangle188 from "@/assets/Rectangle188.png";
 import Rectangle192 from "@/assets/Rectangle192.png";
 import Rectangle193 from "@/assets/Rectangle193.png";
 import Rectangle194 from "@/assets/Rectangle194.png";
-
+import DownArrow from "@/assets/down-icon.png"
 import { faqQuestions } from "../../constant";
 
 export const Home = () => {
   return (
     <ContainerWrapper>
-      <TopSection>
+      <TopSection className="first-section">
         <Container maxWidth='lg' style={{ zIndex: "2" }}>
           <SubHeading>1,300 rooms generated and counting</SubHeading>
           <Heading>
@@ -42,37 +42,41 @@ export const Home = () => {
             Design your dream room
           </DesignDreamRoom>
         </Container>
+        <DownBtnArrow href="">
+          <ArrowImage src={DownArrow} />
+        </DownBtnArrow>
       </TopSection>
-      <PreviewContainer>
+      <PreviewContainer className="second-section">
         <Container maxWidth='lg'>
-          <PreviewTitle>Normal Photos</PreviewTitle>
-          <Grid container columnSpacing={{ xs: 1 }} spacing={0}>
-            <Grid item xs={6}>
-              <PreviewLabel>Before</PreviewLabel>
-              <PreviewImage src={normal1} />
+          <TextSecondContent>
+            <PreviewTitle>Normal Photos</PreviewTitle>
+            <Grid container columnSpacing={{ xs: 1 }} spacing={0}>
+              <Grid item xs={6}>
+                <PreviewLabel>Before</PreviewLabel>
+                <PreviewImage src={normal1} />
+              </Grid>
+              <Grid item xs={6}>
+                <PreviewLabel>After</PreviewLabel>
+                <PreviewImage src={normal2} />
+              </Grid>
             </Grid>
-            <Grid item xs={6}>
-              <PreviewLabel>After</PreviewLabel>
-              <PreviewImage src={normal2} />
+          </TextSecondContent>
+          <TextSecondContent className="second-360-line">
+            <PreviewTitle>360 Photos</PreviewTitle>
+            <Grid container columnSpacing={{ xs: 1 }} spacing={0}>
+              <Grid item xs={6}>
+                <PreviewLabel>Before</PreviewLabel>
+                <PreviewImage src={img3601} />
+              </Grid>
+              <Grid item xs={6}>
+                <PreviewLabel>After</PreviewLabel>
+                <PreviewImage src={img3602} />
+              </Grid>
             </Grid>
-          </Grid>
+          </TextSecondContent>
         </Container>
       </PreviewContainer>
-      <PreviewContainer>
-        <Container maxWidth='lg'>
-          <PreviewTitle>360 Photos</PreviewTitle>
-          <Grid container columnSpacing={{ xs: 1 }} spacing={0}>
-            <Grid item xs={6}>
-              <PreviewLabel>Before</PreviewLabel>
-              <PreviewImage src={img3601} />
-            </Grid>
-            <Grid item xs={6}>
-              <PreviewLabel>After</PreviewLabel>
-              <PreviewImage src={img3602} />
-            </Grid>
-          </Grid>
-        </Container>
-      </PreviewContainer>
+    
       <HowToUseContainer>
         <Container maxWidth='lg'>
           <HowToUseTag>How to Use?</HowToUseTag>
@@ -91,7 +95,7 @@ export const Home = () => {
                 </LeftStep>
               </Grid>
               <Grid item sm={2}>
-                <MeterContainer>
+                <MeterContainer className="first-meter">
                   <Meter />
                   <LeftLine />
                   <CenterLine />
@@ -142,7 +146,7 @@ export const Home = () => {
               </Grid>
               <Grid item sm={5}></Grid>
             </Grid>
-            <Grid container sx={{ alignItems: "center" }}>
+            <Grid container sx={{ alignItems: "center" }} >
               <Grid item sm={5}></Grid>
               <Grid item sm={2}>
                 <MeterContainer>
@@ -352,7 +356,9 @@ export const Home = () => {
   );
 };
 
-const FooterWrapper = styled.div``;
+const FooterWrapper = styled.div`
+  background-color: #0D1A1E;`
+;
 const TopRigthOverlay = styled.div`
   position: absolute;
   top: -264px;
@@ -381,7 +387,7 @@ const CenterLine = styled.div`
 
 const MeterContainer = styled.div`
   position: relative;
-  height: 170px;
+  height: 150px;
 `;
 
 const LeftLine = styled.div`
@@ -415,7 +421,8 @@ const Meter = styled.div`
 `;
 
 const StepsContainer = styled.div`
-  margin: 3rem 0;
+  margin: 100px 0;
+ 
 `;
 
 const LeftStep = styled.div`
@@ -435,25 +442,50 @@ const RightStep = styled.div`
 `;
 
 const LeftStepCount = styled.div`
-  width: 6rem;
-  border: 0.9rem solid #0e1a1f;
-  border-radius: 100%;
+  border-radius: 50%;
+  width: 94px;
+    height: 94px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #223238;
+    border: 11px solid #0E1A1F;
+    min-width: 94px;
+    min-height: 94px;
+    margin-top: -2px;
 `;
 
 const RightStepCount = styled.div`
-  width: 7rem;
-  border: 0.9rem solid #0e1a1f;
-  border-radius: 100%;
+border-radius: 50%;
+width: 94px;
+  height: 94px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #223238;
+  border: 11px solid #0E1A1F;
+  min-width: 94px;
+  min-height: 94px;
+  margin-top: -2px;
 `;
 
 const StepText = styled.p`
-  margin-top: 0.7rem;
-  font-size: 17px;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+text-align: center;
+
+color: #FFFFFF;
 `;
 
 const Count = styled.p`
-  font-size: 32px;
-  font-weight: bold;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+text-align: center;
+color: #FFFFFF;
+font-family: "Gilroy-Bold";
 `;
 
 const StepDescription = styled.p`
@@ -513,17 +545,15 @@ const TopSection = styled.div`
   padding: 6rem 0 3rem;
   overflow: hidden;
   z-index: 0;
+  background-color: #132024;
   
-  &::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  &.first-section{
+    padding: 6rem 0 100px !important;
+    overflow: visible;
     z-index: 1;
-    background: rgba(0, 217, 247, 0.1);
+    background-color: transparent;
   }
+  
 `;
 
 const DesignDreamRoom = styled(Link)`
@@ -546,7 +576,21 @@ const DesignDreamRoom = styled(Link)`
     border-radius: 5px;
   }
 `;
-
+const DownBtnArrow = styled(Link)`
+  width: 62px;
+  height: 62px;
+  background: #223238;
+  border: 11px solid #0E1A1F;
+  position: absolute;
+  bottom: -46px;
+  border-radius: 50%;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const ArrowImage = styled(Image)`
+`;
 const HowToUseContainer = styled.div`
   padding: 4rem 0 2rem;
   background: #131f23;
@@ -554,11 +598,12 @@ const HowToUseContainer = styled.div`
 
 const HowToUseTag = styled.p`
   color: #fff;
-  font-weight: 700;
+  font-weight: 500;
   font-family: "Gilroy-Bold";
   font-size: 52px;
   line-height: 64px;
   text-align: center;
+  font-weight: 500;
 `;
 
 const HowToUseDescription = styled.p`
@@ -573,12 +618,45 @@ const HowToUseDescription = styled.p`
 
 const PreviewContainer = styled.div`
   padding: 4rem 0;
+    &.second-section{
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+      padding-bottom: 160px;
+      &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0e1d21;
+        border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        transform: scaleX(2.7);
+      }
+      &::after{
+        content: '';
+        position: absolute;
+        width: 629px;
+        height: 629px;
+        top: 405px;
+        left: -300px;
+        background: rgba(0, 217, 247, 0.1);
+        filter: blur(200px);
+        border-radius: 50%;
+      }
+    }
 `;
-
+const TextSecondContent = styled.div`
+    position: relative;
+    &.second-360-line{
+      margin-top: 100px;
+    }
+`;
 const PreviewTitle = styled.p`
   font-size: 52px;
-  font-weight: 700;
   font-family: 'Gilroy-Bold';
+  font-weight: 500;
   line-height: 64px;
   text-align: center;
   color: #fff;
@@ -597,6 +675,7 @@ width: 95%;
 const OutputSample = styled.div`
   padding: 14rem 0;
   padding-top: 5rem;
+  background-color: #0D1A1E;
 `;
 
 const SampleOutputTag = styled.p`
@@ -651,6 +730,7 @@ const Image185 = styled(Image)`
 
 const BeforeAfterContainer = styled.div`
   padding: 4rem 0;
+  background-color: #0D1A1E;
 `;
 
 const DesignConsistency = styled.p`
@@ -678,6 +758,7 @@ const DecoratedText = styled.p`
 
 const FAQContainer = styled.div`
   padding: 4rem 0;
+  background-color: #0D1A1E;
 `;
 
 const FAQTag = styled.p`
@@ -685,6 +766,8 @@ const FAQTag = styled.p`
   color: #fff;
   font-weight: bold;
   margin-bottom: 2rem;
+  font-family: "Gilroy-Bold";
+  font-weight: 500;
 `;
 
 const FAQCard = styled.div`
@@ -710,14 +793,16 @@ const FAQToggle = styled(Image)`
 `;
 
 const FeedbackContainer = styled.div`
-  padding: 4rem 0;
+  padding: 4rem 0 10rem;
+  background-color: #0D1A1E;
 `;
 
 const FeedbackHeading = styled.p`
   font-size: 52px;
-  font-weight: bold;
   color: #fff;
   margin: 1rem 0;
+  font-family: "Gilroy-Bold";
+  font-weight: 500;
 `;
 
 const FeedbackSubheading = styled.p`
@@ -758,8 +843,6 @@ const UserFeeback = styled.p`
 const FooterBanner = styled.div`
   background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.42) 25.71%, rgba(8, 86, 86, 0.42) 80.11%);
   border-radius: 25px;
-  margin: 5rem 0;
-  margin-bottom: 6.5rem;
   position: relative;
   overflow: hidden;
 `;
@@ -767,8 +850,10 @@ const FooterBanner = styled.div`
 // #0db2b2 for adding gradient in footer banner
 
 const FooterTag = styled.p`
-  font-size: 40px;
+  font-size: 42px;
   font-weight: bold;
+  font-family: "Gilroy-Bold";
+  font-weight: 500;
   color: #fff;
   padding: 2rem 0 1rem;
 `;
