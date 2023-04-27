@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import styled from "@emotion/styled";
-import { Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import Image from "next/image";
 
 import userFeeback from "@/assets/userFeeback.png";
@@ -25,309 +25,352 @@ import { faqQuestions } from "../../constant";
 
 export const Home = () => {
   return (
-    <Container>
-      <SubHeading>1,300 rooms generated and counting</SubHeading>
-      <Heading>
-        Design your Dream Rooms
-        <br />
-        with Al.
-      </Heading>
-      <Tag>Transform Your Space with Our 100% Free Al Themes:</Tag>
-      <StrongTag>
-        See Your Room in a New Light from Normal Photos to 360 Views.
-      </StrongTag>
-      <DesignDreamRoom href="/room-design">
-        Design your dream room
-      </DesignDreamRoom>
+    <ContainerWrapper>
+      <TopSection>
+        <Container maxWidth='lg' style={{ zIndex: "2" }}>
+          <SubHeading>1,300 rooms generated and counting</SubHeading>
+          <Heading>
+            Design your Dream Rooms
+            <br />
+            with Al.
+          </Heading>
+          <Tag>Transform Your Space with Our 100% Free Al Themes:</Tag>
+          <StrongTag>
+            See Your Room in a New Light from Normal Photos to 360 Views.
+          </StrongTag>
+          <DesignDreamRoom href="/room-design">
+            Design your dream room
+          </DesignDreamRoom>
+        </Container>
+      </TopSection>
       <PreviewContainer>
-        <PreviewTitle>Normal Photos</PreviewTitle>
-        <Grid container columnSpacing={{ xs: 1 }}>
-          <Grid item xs={6}>
-            <PreviewLabel>Before</PreviewLabel>
-            <PreviewImage src={normal1} />
+        <Container maxWidth='lg'>
+          <PreviewTitle>Normal Photos</PreviewTitle>
+          <Grid container columnSpacing={{ xs: 1 }} spacing={0}>
+            <Grid item xs={6}>
+              <PreviewLabel>Before</PreviewLabel>
+              <PreviewImage src={normal1} />
+            </Grid>
+            <Grid item xs={6}>
+              <PreviewLabel>After</PreviewLabel>
+              <PreviewImage src={normal2} />
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
-            <PreviewLabel>After</PreviewLabel>
-            <PreviewImage src={normal2} />
-          </Grid>
-        </Grid>
+        </Container>
       </PreviewContainer>
       <PreviewContainer>
-        <PreviewTitle>360 Photos</PreviewTitle>
-        <Grid container columnSpacing={{ xs: 1 }}>
-          <Grid item xs={6}>
-            <PreviewLabel>Before</PreviewLabel>
-            <PreviewImage src={img3601} />
+        <Container maxWidth='lg'>
+          <PreviewTitle>360 Photos</PreviewTitle>
+          <Grid container columnSpacing={{ xs: 1 }} spacing={0}>
+            <Grid item xs={6}>
+              <PreviewLabel>Before</PreviewLabel>
+              <PreviewImage src={img3601} />
+            </Grid>
+            <Grid item xs={6}>
+              <PreviewLabel>After</PreviewLabel>
+              <PreviewImage src={img3602} />
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
-            <PreviewLabel>After</PreviewLabel>
-            <PreviewImage src={img3602} />
-          </Grid>
-        </Grid>
+        </Container>
       </PreviewContainer>
       <HowToUseContainer>
-        <HowToUseTag>How to Use?</HowToUseTag>
-        <HowToUseDescription>Step-by-Step Guide</HowToUseDescription>
-        <StepsContainer>
-          <Grid container sx={{ alignItems: "center" }}>
-            <Grid item sm={5}>
-              <LeftStep>
-                <LeftStepCount>
-                  <StepText>Step</StepText>
-                  <Count>01</Count>
-                </LeftStepCount>
-                <StepDescription>
-                  Click the "Design your dream room" button above.
-                </StepDescription>
-              </LeftStep>
+        <Container maxWidth='lg'>
+          <HowToUseTag>How to Use?</HowToUseTag>
+          <HowToUseDescription>Step-by-Step Guide</HowToUseDescription>
+          <StepsContainer>
+            <Grid container sx={{ alignItems: "center" }}>
+              <Grid item sm={5}>
+                <LeftStep>
+                  <LeftStepCount>
+                    <StepText>Step</StepText>
+                    <Count>01</Count>
+                  </LeftStepCount>
+                  <StepDescription>
+                    Click the "Design your dream room" button above.
+                  </StepDescription>
+                </LeftStep>
+              </Grid>
+              <Grid item sm={2}>
+                <MeterContainer>
+                  <Meter />
+                  <LeftLine />
+                  <CenterLine />
+                </MeterContainer>
+              </Grid>
+              <Grid item sm={5}></Grid>
             </Grid>
-            <Grid item sm={2}>
-              <MeterContainer>
-                <Meter />
-                <LeftLine />
-                <CenterLine />
-              </MeterContainer>
+            <Grid container sx={{ alignItems: "center" }}>
+              <Grid item sm={5}></Grid>
+              <Grid item sm={2}>
+                <MeterContainer>
+                  <Meter />
+                  <RightLine />
+                  <CenterLine />
+                </MeterContainer>
+              </Grid>
+              <Grid item sm={5}>
+                <RightStep>
+                  <StepDescription>
+                    Choose the photo type you prefer: "Normal Photos" or "360
+                    Photos".
+                  </StepDescription>
+                  <RightStepCount>
+                    <StepText>Step</StepText>
+                    <Count>02</Count>
+                  </RightStepCount>
+                </RightStep>
+              </Grid>
             </Grid>
-            <Grid item sm={5}></Grid>
-          </Grid>
-          <Grid container sx={{ alignItems: "center" }}>
-            <Grid item sm={5}></Grid>
-            <Grid item sm={2}>
-              <MeterContainer>
-                <Meter />
-                <RightLine />
-                <CenterLine />
-              </MeterContainer>
+            <Grid container sx={{ alignItems: "center" }}>
+              <Grid item sm={5}>
+                <LeftStep>
+                  <LeftStepCount>
+                    <StepText>Step</StepText>
+                    <Count>03</Count>
+                  </LeftStepCount>
+                  <StepDescription>
+                    Select the type of room you want to remodel.
+                  </StepDescription>
+                </LeftStep>
+              </Grid>
+              <Grid item sm={2}>
+                <MeterContainer>
+                  <Meter />
+                  <LeftLine />
+                  <CenterLine />
+                </MeterContainer>
+              </Grid>
+              <Grid item sm={5}></Grid>
             </Grid>
-            <Grid item sm={5}>
-              <RightStep>
-                <StepDescription>
-                  Choose the photo type you prefer: "Normal Photos" or "360
-                  Photos".
-                </StepDescription>
-                <RightStepCount>
-                  <StepText>Step</StepText>
-                  <Count>02</Count>
-                </RightStepCount>
-              </RightStep>
+            <Grid container sx={{ alignItems: "center" }}>
+              <Grid item sm={5}></Grid>
+              <Grid item sm={2}>
+                <MeterContainer>
+                  <Meter />
+                  <RightLine />
+                  <CenterLine />
+                </MeterContainer>
+              </Grid>
+              <Grid item sm={5}>
+                <RightStep>
+                  <StepDescription>
+                    Select the type of theme you want to apply to your room.
+                  </StepDescription>
+                  <RightStepCount>
+                    <StepText>Step</StepText>
+                    <Count>04</Count>
+                  </RightStepCount>
+                </RightStep>
+              </Grid>
             </Grid>
-          </Grid>
-          <Grid container sx={{ alignItems: "center" }}>
-            <Grid item sm={5}>
-              <LeftStep>
-                <LeftStepCount>
-                  <StepText>Step</StepText>
-                  <Count>03</Count>
-                </LeftStepCount>
-                <StepDescription>
-                  Select the type of room you want to remodel.
-                </StepDescription>
-              </LeftStep>
+            <Grid container sx={{ alignItems: "center" }}>
+              <Grid item sm={5}>
+                <LeftStep>
+                  <LeftStepCount>
+                    <StepText>Step</StepText>
+                    <Count>05</Count>
+                  </LeftStepCount>
+                  <StepDescription>Upload your photo.</StepDescription>
+                </LeftStep>
+              </Grid>
+              <Grid item sm={2}>
+                <MeterContainer>
+                  <Meter />
+                  <LeftLine />
+                  <CenterLine />
+                </MeterContainer>
+              </Grid>
+              <Grid item sm={5}></Grid>
             </Grid>
-            <Grid item sm={2}>
-              <MeterContainer>
-                <Meter />
-                <LeftLine />
-                <CenterLine />
-              </MeterContainer>
+            <Grid container sx={{ alignItems: "center" }}>
+              <Grid item sm={5}></Grid>
+              <Grid item sm={2}>
+                <MeterContainer>
+                  <Meter />
+                  <RightLine />
+                  <CenterLine />
+                </MeterContainer>
+              </Grid>
+              <Grid item sm={5}>
+                <RightStep>
+                  <StepDescription>
+                    Click "Design Your Room" and wait for the magic to happen.
+                  </StepDescription>
+                  <RightStepCount>
+                    <StepText>Step</StepText>
+                    <Count>06</Count>
+                  </RightStepCount>
+                </RightStep>
+              </Grid>
             </Grid>
-            <Grid item sm={5}></Grid>
-          </Grid>
-          <Grid container sx={{ alignItems: "center" }}>
-            <Grid item sm={5}></Grid>
-            <Grid item sm={2}>
-              <MeterContainer>
-                <Meter />
-                <RightLine />
-                <CenterLine />
-              </MeterContainer>
-            </Grid>
-            <Grid item sm={5}>
-              <RightStep>
-                <StepDescription>
-                  Select the type of theme you want to apply to your room.
-                </StepDescription>
-                <RightStepCount>
-                  <StepText>Step</StepText>
-                  <Count>04</Count>
-                </RightStepCount>
-              </RightStep>
-            </Grid>
-          </Grid>
-          <Grid container sx={{ alignItems: "center" }}>
-            <Grid item sm={5}>
-              <LeftStep>
-                <LeftStepCount>
-                  <StepText>Step</StepText>
-                  <Count>05</Count>
-                </LeftStepCount>
-                <StepDescription>Upload your photo.</StepDescription>
-              </LeftStep>
-            </Grid>
-            <Grid item sm={2}>
-              <MeterContainer>
-                <Meter />
-                <LeftLine />
-                <CenterLine />
-              </MeterContainer>
-            </Grid>
-            <Grid item sm={5}></Grid>
-          </Grid>
-          <Grid container sx={{ alignItems: "center" }}>
-            <Grid item sm={5}></Grid>
-            <Grid item sm={2}>
-              <MeterContainer>
-                <Meter />
-                <RightLine />
-                <CenterLine />
-              </MeterContainer>
-            </Grid>
-            <Grid item sm={5}>
-              <RightStep>
-                <StepDescription>
-                  Click "Design Your Room" and wait for the magic to happen.
-                </StepDescription>
-                <RightStepCount>
-                  <StepText>Step</StepText>
-                  <Count>06</Count>
-                </RightStepCount>
-              </RightStep>
-            </Grid>
-          </Grid>
-        </StepsContainer>
+          </StepsContainer>
+        </Container>
       </HowToUseContainer>
       <OutputSample>
-        <Grid container direction="row">
-          <Grid container item xs={12} sm={5}>
-            <Grid item>
-              <SampleOutputTag>
-                More Options,
-                <br />
-                Better Choices
-              </SampleOutputTag>
+        <Container maxWidth='lg'>
+          <Grid container direction="row">
+            <Grid container item xs={12} sm={5}>
+              <Grid item>
+                <SampleOutputTag>
+                  More Options,
+                  <br />
+                  Better Choices
+                </SampleOutputTag>
+              </Grid>
+              <Grid item>
+                <SampleOutputDescription>
+                  With the Variation Results feature, you don't have to settle for
+                  just 1 design, you can receive up to 4 different design options
+                  in a single generation, allowing you to choose the most
+                  desirable one and download it. This feature gives you the
+                  ability to explore different styles and find the perfect design
+                  for your room.
+                </SampleOutputDescription>
+              </Grid>
             </Grid>
-            <Grid item>
-              <SampleOutputDescription>
-                With the Variation Results feature, you don't have to settle for
-                just 1 design, you can receive up to 4 different design options
-                in a single generation, allowing you to choose the most
-                desirable one and download it. This feature gives you the
-                ability to explore different styles and find the perfect design
-                for your room.
-              </SampleOutputDescription>
+            <Grid container item xs={12} sm={7}>
+              <CarasoleContainer>
+                <Image src={Rectangle175} />
+                <Image196 src={Rectangle196} />
+                <Image195 src={Rectangle195} />
+                <Image197 src={Rectangle197} />
+                <Image184 src={Rectangle184} />
+                <Image185 src={Rectangle185} />
+              </CarasoleContainer>
             </Grid>
           </Grid>
-          <Grid container item xs={12} sm={7}>
-            <CarasoleContainer>
-              <Image src={Rectangle175} />
-              <Image196 src={Rectangle196} />
-              <Image195 src={Rectangle195} />
-              <Image197 src={Rectangle197} />
-              <Image184 src={Rectangle184} />
-              <Image185 src={Rectangle185} />
-            </CarasoleContainer>
-          </Grid>
-        </Grid>
+        </Container>
       </OutputSample>
       <BeforeAfterContainer>
-        <Grid container>
-          <Grid item container xs={12} sm={6}>
-            <Grid constainer xs={12} sm={6}>
-              <Grid item>
-                <Image src={Rectangle188} />
-                <DecoratedText>Before</DecoratedText>
+        <Container maxWidth='lg'>
+          <Grid container>
+            <Grid item container xs={12} sm={6}>
+              <Grid container item xs={12} sm={6} spacing={0}>
+                <Grid item>
+                  <Image src={Rectangle188} />
+                  <DecoratedText>Before</DecoratedText>
+                </Grid>
+                <Grid item >
+                  <Image src={Rectangle193} />
+                  <DecoratedText>Before</DecoratedText>
+                </Grid>
               </Grid>
-              <Grid item>
-                <Image src={Rectangle193} />
-                <DecoratedText>Before</DecoratedText>
+              <Grid container item xs={12} sm={6} spacing={0} style={{ marginInlineStart: '-30px' }}>
+                <Grid item>
+                  <Image src={Rectangle192} />
+                  <DecoratedText>After</DecoratedText>
+                </Grid>
+                <Grid item >
+                  <Image src={Rectangle194} />
+                  <DecoratedText>After</DecoratedText>
+                </Grid>
               </Grid>
             </Grid>
-            <Grid constainer xs={12} sm={6}>
-              <Grid item>
-                <Image src={Rectangle192} />
-                <DecoratedText>After</DecoratedText>
-              </Grid>
-              <Grid item>
-                <Image src={Rectangle194} />
-                <DecoratedText>After</DecoratedText>
-              </Grid>
+            <Grid item container xs={12} sm={6}>
+              <DesignConsistency>
+                Consistency in Design
+                <br />
+                Made Easy
+              </DesignConsistency>
+              <ConsistencyText>
+                If you loved the design of your previous room and want to maintain
+                the same theme setting for multiple rooms in your house, our Match
+                Style feature is here to help. Simply click the button after
+                generating your room photo, and our Al- powered tool will generate
+                similar style options for your other rooms. This feature not only
+                saves you time, but it also ensures consistency in design,
+                especially if you're an interior designer.
+              </ConsistencyText>
             </Grid>
           </Grid>
-          <Grid item container xs={12} sm={6}>
-            <DesignConsistency>
-              Consistency in Design
-              <br />
-              Made Easy
-            </DesignConsistency>
-            <ConsistencyText>
-              If you loved the design of your previous room and want to maintain
-              the same theme setting for multiple rooms in your house, our Match
-              Style feature is here to help. Simply click the button after
-              generating your room photo, and our Al- powered tool will generate
-              similar style options for your other rooms. This feature not only
-              saves you time, but it also ensures consistency in design,
-              especially if you're an interior designer.
-            </ConsistencyText>
-          </Grid>
-        </Grid>
+        </Container>
       </BeforeAfterContainer>
       <FAQContainer>
-        <FAQTag>FAQ</FAQTag>
-        {faqQuestions.map((question, index) => (
-          <FAQCard key={index}>
-            <FAQQuestion>{question}</FAQQuestion>
-            <FAQToggle src={plusCircle} />
-          </FAQCard>
-        ))}
+        <Container maxWidth='lg'>
+          <FAQTag>FAQ</FAQTag>
+          {faqQuestions.map((question, index) => (
+            <FAQCard key={index}>
+              <FAQQuestion>{question}</FAQQuestion>
+              <FAQToggle src={plusCircle} />
+            </FAQCard>
+          ))}
+        </Container>
       </FAQContainer>
       <FeedbackContainer>
-        <FeedbackHeading>What Our Users Are Saying</FeedbackHeading>
-        <FeedbackSubheading>
-          Reviews from Over 13,000 Satisfied Customers
-        </FeedbackSubheading>
-        <Grid
-          container
-          spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 12, sm: 6, md: 4 }}
-          style={{ marginTop: "1rem", justifyContent: "center" }}
-        >
-          {Array.from(Array(6)).map((_, index) => (
-            <Grid item key={index}>
-              <FeedbackCard>
-                <Grid container item xs={12}>
-                  <Grid item xs={3}>
-                    <Image src={userFeeback} style={{ margin: "1rem" }} />
+        <Container maxWidth='lg'>
+          <FeedbackHeading>What Our Users Are Saying</FeedbackHeading>
+          <FeedbackSubheading>
+            Reviews from Over 13,000 Satisfied Customers
+          </FeedbackSubheading>
+          <Grid
+            container
+            spacing={{ xs: 2, md: 3 }}
+            columns={{ xs: 12, sm: 6, md: 4 }}
+            style={{ marginTop: "1rem", justifyContent: "center" }}
+          >
+            {Array.from(Array(6)).map((_, index) => (
+              <Grid item key={index}>
+                <FeedbackCard>
+                  <Grid container item xs={12}>
+                    <Grid item xs={3}>
+                      <Image src={userFeeback} style={{ margin: "1rem" }} />
+                    </Grid>
+                    <Grid item xs={9}>
+                      <FeedbackUser>Sarah Johnson</FeedbackUser>
+                      <FeedbackUserJob>Interior Designer</FeedbackUserJob>
+                    </Grid>
                   </Grid>
-                  <Grid item xs={9}>
-                    <FeedbackUser>Sarah Johnson</FeedbackUser>
-                    <FeedbackUserJob>Interior Designer</FeedbackUserJob>
-                  </Grid>
-                </Grid>
-                <UserFeeback>
-                  "I was blown away by how easy it was to use this AI-powered
-                  tool. The results were stunning and my clients loved it!"
-                </UserFeeback>
-              </FeedbackCard>
-            </Grid>
-          ))}
-        </Grid>
+                  <UserFeeback>
+                    "I was blown away by how easy it was to use this AI-powered
+                    tool. The results were stunning and my clients loved it!"
+                  </UserFeeback>
+                </FeedbackCard>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
       </FeedbackContainer>
-      <FooterBanner>
-        <FooterTag>Ready to design your dream room?</FooterTag>
-        <FooterSubTag>
-          Try our free Al room design tool and experience the power of
-          Al-powered
-          <br />
-          interior design software today!
-        </FooterSubTag>
-        <DesignDreamRoom href="/room-design">
-          Design your dream room
-        </DesignDreamRoom>
-      </FooterBanner>
-    </Container>
+      <FooterWrapper>
+        <Container maxWidth='lg'>
+          <FooterBanner>
+          <BottomLeftOverlay />
+          <TopRigthOverlay />
+          <FooterTag>Ready to design your dream room?</FooterTag>
+          <FooterSubTag>
+            Try our free Al room design tool and experience the power of
+            Al-powered
+            <br />
+            interior design software today!
+          </FooterSubTag>
+          <DesignDreamRoom href="/room-design">
+            Design your dream room
+          </DesignDreamRoom>
+          </FooterBanner>
+        </Container>
+      </FooterWrapper>
+    </ContainerWrapper>
   );
 };
 
+const FooterWrapper = styled.div``;
+const TopRigthOverlay = styled.div`
+  position: absolute;
+  top: -264px;
+  right: -173px;
+  width: 330px;
+  height: 400px;
+  background: #0DB3B3;
+  filter: blur(85.5px);
+`
+const BottomLeftOverlay = styled.div`
+  position: absolute;
+  bottom: -264px;
+  left: -173px;
+  width: 330px;
+  height: 400px;
+  background: #0DB3B3;
+  filter: blur(85.5px);
+`;
 const CenterLine = styled.div`
   width: 2px;
   background: #fff;
@@ -422,21 +465,27 @@ const StepDescription = styled.p`
   font-weight: bold;
 `;
 
-const Container = styled.div`
+const ContainerWrapper = styled.div`
   text-align: center;
-  margin-top: 5rem;
+  position: relative;
 `;
 
 const SubHeading = styled.h2`
-  color: #0db2b2;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
   font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+  color: #0DB3B3;
 `;
 
 const Heading = styled.h1`
   color: #ffffff;
   font-size: 82px;
+  line-height: 102px;
   font-family: "Gilroy-Bold";
-  font-weight: 500;
+  font-weight: 700;
 `;
 
 const Tag = styled.p`
@@ -449,45 +498,89 @@ const StrongTag = styled.p`
   color: #ffffff;
   font-weight: bold;
   margin-top: 0.4rem;
+  font-family: 'Quicksand';
   font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+`;
+
+const TopSection = styled.div`
+  display: flex;
+  align-item: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  padding: 6rem 0 3rem;
+  overflow: hidden;
+  z-index: 0;
+  
+  &::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 217, 247, 0.1);
+  }
 `;
 
 const DesignDreamRoom = styled(Link)`
   color: #ffff;
   font-size: 18px;
   text-decoration: none;
-  height: 60px;
-  line-height: 60px;
-  padding: 0 40px;
-  border-radius: 10px;
+  line-height: 22px;
+  padding: 18px 42px;
+  border-radius: 5px;
   font-family: "Quicksand";
-  font-weight: bold;
+  font-weight: 700;
   display: inline-block;
-  background: #0db2b2;
+  background: linear-gradient(107.95deg, #109797 30.24%, #24B3B3 70.79%);
   margin: 2rem 0;
+  border: 1px solid transparent;
+
+  &:hover {
+    background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.42) 25.71%, rgba(8, 86, 86, 0.42) 80.11%);
+    border: 1px solid #0DB3B3;
+    border-radius: 5px;
+  }
 `;
 
-const HowToUseContainer = styled.div``;
+const HowToUseContainer = styled.div`
+  padding: 4rem 0 2rem;
+  background: #131f23;
+`;
 
 const HowToUseTag = styled.p`
   color: #fff;
+  font-weight: 700;
+  font-family: "Gilroy-Bold";
   font-size: 52px;
-  font-weight: bold;
+  line-height: 64px;
+  text-align: center;
 `;
 
 const HowToUseDescription = styled.p`
   color: #fff;
   font-size: 36px;
+  line-height: 45px;
+  text-align: center;
+  font-weigth: 700;
+  font-family: "Quicksand";
   font-weight: bold;
 `;
 
 const PreviewContainer = styled.div`
-  margin-bottom: 4rem;
+  padding: 4rem 0;
 `;
 
 const PreviewTitle = styled.p`
   font-size: 52px;
-  font-weight: bold;
+  font-weight: 700;
+  font-family: 'Gilroy-Bold';
+  line-height: 64px;
+  text-align: center;
   color: #fff;
 `;
 
@@ -497,7 +590,9 @@ const PreviewLabel = styled.p`
   color: #fff;
 `;
 
-const PreviewImage = styled(Image)``;
+const PreviewImage = styled(Image)`
+width: 95%;
+`;
 
 const OutputSample = styled.div`
   padding: 14rem 0;
@@ -554,7 +649,9 @@ const Image185 = styled(Image)`
   left: 111%;
 `;
 
-const BeforeAfterContainer = styled.div``;
+const BeforeAfterContainer = styled.div`
+  padding: 4rem 0;
+`;
 
 const DesignConsistency = styled.p`
   font-size: 36px;
@@ -580,7 +677,7 @@ const DecoratedText = styled.p`
 `;
 
 const FAQContainer = styled.div`
-  margin-bottom: 3rem;
+  padding: 4rem 0;
 `;
 
 const FAQTag = styled.p`
@@ -612,7 +709,9 @@ const FAQToggle = styled(Image)`
   cursor: pointer;
 `;
 
-const FeedbackContainer = styled.div``;
+const FeedbackContainer = styled.div`
+  padding: 4rem 0;
+`;
 
 const FeedbackHeading = styled.p`
   font-size: 52px;
@@ -657,9 +756,12 @@ const UserFeeback = styled.p`
 `;
 
 const FooterBanner = styled.div`
-  background: #064545;
+  background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.42) 25.71%, rgba(8, 86, 86, 0.42) 80.11%);
+  border-radius: 25px;
   margin: 5rem 0;
-  border-radius: 15px;
+  margin-bottom: 6.5rem;
+  position: relative;
+  overflow: hidden;
 `;
 
 // #0db2b2 for adding gradient in footer banner

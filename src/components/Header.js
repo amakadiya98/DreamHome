@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import Container from "@mui/material/Container";
 import styled from "@emotion/styled";
 
 import { MainLogo } from "@/components/Logo";
@@ -8,8 +8,12 @@ import { HowToUseBtn } from "@/components/Button";
 export const MainHeader = () => {
   return (
     <HeaderContianer>
-      <MainLogo />
-      <HowToUseBtn />
+      <Container maxWidth="lg">
+        <HeaderContent>
+          <MainLogo />
+          <HowToUseBtn />
+        </HeaderContent>
+      </Container>
     </HeaderContianer>
   );
 };
@@ -18,18 +22,28 @@ const HeaderContianer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: rgba(0, 217, 247, 0.1);
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 1.5rem 0;
+`;
+
+const HeaderContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const HeadingAndSubHeading = () => {
   return (
-    <Container>
+    <Containers>
       <SubHeading>1,300 rooms generated and counting</SubHeading>
       <Heading>Design your Dream Rooms</Heading>
-    </Container>
+    </Containers>
   );
 };
 
-const Container = styled.div`
+const Containers = styled.div`
   text-align: center;
   margin-top: 5rem;
 `;
