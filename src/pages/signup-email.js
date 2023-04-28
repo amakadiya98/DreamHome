@@ -26,7 +26,7 @@ export default function SignInGoogle() {
         </SignInLabel>
         <Container>
           <Grid container sx={{ justifyContent: "center" }}>
-          <Grid item sx={12} sm={8} sx={{width: '90%'}}>
+          <Grid item xs={12} sm={8} sx={{width: '90%'}}>
               <Email>
                 <InputLabel>Email</InputLabel>
                 <InputEmail
