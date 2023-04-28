@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 
 export default function MainContainer({ children }) {
   return (
-    <Body className="mainGredient">
+    <Body>
       <MainHeader />
         {children}
       <Footer />
@@ -14,22 +14,4 @@ export default function MainContainer({ children }) {
 }
 
 
-const Body = styled.div`
-&.mainGredient{
-  position: relative;
-  overflow-x: hidden; 
-  &::before{
-    content: '';
-    position: absolute;
-    top: -300px;
-    right: -300px;
-    border-radius: 50%;
-    width: 830px;
-    height: 830px;
-    background: rgba(0, 217, 247, 0.1);
-    filter: blur(323.5px);
-    z-index: 0;
-    overflow: hidden;
-  }
-}
-`;
+const Body = styled.div``;
