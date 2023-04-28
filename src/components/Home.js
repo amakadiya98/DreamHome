@@ -577,9 +577,11 @@ const DesignTextInfo = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 20px;
+  padding-left: 1.5rem;
 
   @media screen and (max-width: 899px) {
     padding-top: 3rem;
+    padding-left: 0;
   }
 
 `
@@ -825,6 +827,8 @@ const ContainerWrapper = styled.div`
   position: relative;
   background-color: #0D1A1E;
   padding-bottom: 8rem;
+  margin-top: -135px;
+  padding-top: 120px;
 `;
 
 const SubHeading = styled.h2`
