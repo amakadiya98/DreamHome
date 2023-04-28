@@ -152,11 +152,11 @@ const SignInLabel = styled.p`
 
 const Container = styled.div`
   margin-top: 30px;
-  margin-bottom: 62px;
+  margin-bottom: 190px;
   text-align: center;
 
   @media (max-width: 991px){
-    margin-bottom: 95px;
+    margin-bottom: 223px;
   }
 
   @media (max-width: 425px) {

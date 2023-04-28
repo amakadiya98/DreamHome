@@ -103,7 +103,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 120px;
+  margin-bottom: 140px;
   position: relative;
   z-index: 1;
 `;
