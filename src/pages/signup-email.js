@@ -26,7 +26,7 @@ export default function SignInGoogle() {
         </SignInLabel>
         <Container>
           <Grid container sx={{ justifyContent: "center" }}>
-          <Grid item xs={12} sm={8} sx={{width: '90%'}}>
+          <Grid item xs={12} sm={8} sx={{maxWidth: '90%'}}>
               <Email>
                 <InputLabel>Email</InputLabel>
                 <InputEmail
@@ -89,19 +89,29 @@ const InputEmail = styled(InputBase)`
   color: #fff;
   width: 100%;
   position: relative;
-  z-index:9;
+  z-index: 9;
+
+  @media (max-width: 991px) {
+    padding: 20px 24px;
+  }
 `;
 
 const SignInHeader = styled.h1`
   text-align: center;
   font-size: 52px;
   color: #fff;
-  margin: 142px 0 15px;
+  margin: 8rem 0 1rem;
   font-family: "Gilroy-Bold";
+
+  @media (max-width:768px){
+    font-size:45px;
+  }
+
   @media (max-width:425px) {
     font-size: 37px;
-    width: 86%;
-    margin: 78px auto 6px auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
@@ -110,17 +120,30 @@ const SignInLabel = styled.p`
   color: #ffffff;
   text-align: center;
   margin-top: 1rem;
+
+  @media (max-width: 768px) {
+    width: 55%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   @media (max-width: 425px) {
     font-size: 14px;
-    width: 75%;
-    margin: 5px auto 0;
+    line-height: 22.19px;
+    width: 80%;
+    margin: 0 auto;
   }
 `;
 
 const Container = styled.div`
   margin-top: 30px;
-  margin-bottom: 190px;
+  margin-bottom: 62px;
   text-align: center;
+
+  @media (max-width: 991px){
+    margin-bottom: 95px;
+  }
+
   @media (max-width: 425px) {
     margin-top: 28px;
   }
@@ -151,7 +174,7 @@ const ContinueButton = styled(Button)`
 const Email = styled.div`
   width: 70%;
   margin: 0 auto;
-  @media (max-width: 425px) {
+  @media (max-width: 991px) {
     width: 100%;
   }
 `;

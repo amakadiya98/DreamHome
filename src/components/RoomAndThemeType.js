@@ -12,26 +12,53 @@ export const RoomAndThemeType = () => {
         marginTop: "0.1rem",
       }}
     >
-      <Grid item xs={12} md={6}>
-        <ChooseRoom>
-          Here's your new <strong>Choosed Room</strong>
-        </ChooseRoom>
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <TypedRoom>
-          Typed in the
-          <strong>Choosed Room Theme!</strong>
-        </TypedRoom>
-      </Grid>
+      <Info>
+        <Grid item xs={12} md={6}>
+          <ChooseRoom>
+            Here's your new <strong>Choosed Room</strong>
+          </ChooseRoom>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TypedRoom>
+            Typed in the
+            <strong>Choosed Room Theme!</strong>
+          </TypedRoom>
+        </Grid>
+      </Info>
+
     </Grid>
   );
 };
 
 const ChooseRoom = styled.p`
-  color: #ffff;
-  text-align: right;
+color: #ffff;
+text-align: right;
+font-size: 18px;
+font-family: 'Quicksand';
+font-weight: 400;
+@media (max-width:425px){
+  text-align: center;
+}
 `;
 
 const TypedRoom = styled.p`
-  color: #ffff;
+color: #ffff;
+text-align: left;
+font-size: 18px;
+font-weight: 400;
+font-family: 'Quicksand';
+margin-left: 22px;
+@media (max-width:425px){
+  text-align: center;
+}
+`;
+
+const Info = styled.div`
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  @media(max-width:425px){
+    display: block;
+  }
 `;

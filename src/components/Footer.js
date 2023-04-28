@@ -32,10 +32,7 @@ export const Footer = () => {
     </FooterMainPart>
   );
 };
-const FooterMainPart = styled.div`
-  background-color: #0D1A1E;
-  padding-top: 8rem;
-`;
+const FooterMainPart = styled.div``;
 
 const Contianer = styled(Container)`
   border-top: 1px solid #5f5f5f;
