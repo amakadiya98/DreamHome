@@ -22,6 +22,7 @@ const HeaderContianer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #121f23;
   flex: 1 1 auto;
   margin: 0;
   padding: 1.5rem 0;
