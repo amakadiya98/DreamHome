@@ -1,15 +1,11 @@
 import Link from "next/link";
-import * as React from 'react';
+
 import styled from "@emotion/styled";
 import { Container, Grid } from "@mui/material";
 import Image from "next/image";
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
+
 import userFeeback from "@/assets/userFeeback.png";
 import plusCircle from "@/assets/plusCircle.png";
-import minusIcon from "@/assets/minusIcon.png"
 import normal1 from "@/assets/normal1.png";
 import normal2 from "@/assets/normal2.png";
 import img3601 from "@/assets/3601.png";
@@ -24,38 +20,13 @@ import Rectangle188 from "@/assets/Rectangle188.png";
 import Rectangle192 from "@/assets/Rectangle192.png";
 import Rectangle193 from "@/assets/Rectangle193.png";
 import Rectangle194 from "@/assets/Rectangle194.png";
-import DownArrow from "@/assets/down-icon.png";
-import connectingArrow from "@/assets/connetingArrow.png";
+
 import { faqQuestions } from "../../constant";
 
 export const Home = () => {
-
-  const images = [
-    {
-      src: Rectangle196,
-      alt: 'Slide 1',
-    },
-    {
-      src: Rectangle195,
-      alt: 'Slide 2',
-    },
-    {
-      src: Rectangle197,
-      alt: 'Slide 3',
-    },
-    {
-      src: Rectangle184,
-      alt: 'Slide 4'
-    },
-    {
-      src: Rectangle185,
-      alt: 'Slide 5'
-    }
-  ];
-
   return (
     <ContainerWrapper>
-      <TopSection className="first-section">
+      <TopSection>
         <Container maxWidth='lg' style={{ zIndex: "2" }}>
           <SubHeading>1,300 rooms generated and counting</SubHeading>
           <Heading>
@@ -71,41 +42,37 @@ export const Home = () => {
             Design your dream room
           </DesignDreamRoom>
         </Container>
-        <DownBtnArrow href="">
-          <ArrowImage src={DownArrow} />
-        </DownBtnArrow>
       </TopSection>
-      <PreviewContainer className="second-section">
+      <PreviewContainer>
         <Container maxWidth='lg'>
-          <TextSecondContent>
-            <PreviewTitle>Normal Photos</PreviewTitle>
-            <Grid container columnSpacing={{ xs: 1 }} spacing={0}>
-              <Grid item xs={6}>
-                <PreviewLabel>Before</PreviewLabel>
-                <PreviewImage src={normal1} />
-              </Grid>
-              <Grid item xs={6}>
-                <PreviewLabel>After</PreviewLabel>
-                <PreviewImage src={normal2} />
-              </Grid>
+          <PreviewTitle>Normal Photos</PreviewTitle>
+          <Grid container columnSpacing={{ xs: 1 }} spacing={0}>
+            <Grid item xs={6}>
+              <PreviewLabel>Before</PreviewLabel>
+              <PreviewImage src={normal1} />
             </Grid>
-          </TextSecondContent>
-          <TextSecondContent className="second-360-line">
-            <PreviewTitle>360 Photos</PreviewTitle>
-            <Grid container columnSpacing={{ xs: 1 }} spacing={0}>
-              <Grid item xs={6}>
-                <PreviewLabel>Before</PreviewLabel>
-                <PreviewImage src={img3601} />
-              </Grid>
-              <Grid item xs={6}>
-                <PreviewLabel>After</PreviewLabel>
-                <PreviewImage src={img3602} />
-              </Grid>
+            <Grid item xs={6}>
+              <PreviewLabel>After</PreviewLabel>
+              <PreviewImage src={normal2} />
             </Grid>
-          </TextSecondContent>
+          </Grid>
         </Container>
       </PreviewContainer>
-    
+      <PreviewContainer>
+        <Container maxWidth='lg'>
+          <PreviewTitle>360 Photos</PreviewTitle>
+          <Grid container columnSpacing={{ xs: 1 }} spacing={0}>
+            <Grid item xs={6}>
+              <PreviewLabel>Before</PreviewLabel>
+              <PreviewImage src={img3601} />
+            </Grid>
+            <Grid item xs={6}>
+              <PreviewLabel>After</PreviewLabel>
+              <PreviewImage src={img3602} />
+            </Grid>
+          </Grid>
+        </Container>
+      </PreviewContainer>
       <HowToUseContainer>
         <Container maxWidth='lg'>
           <HowToUseTag>How to Use?</HowToUseTag>
@@ -124,7 +91,7 @@ export const Home = () => {
                 </LeftStep>
               </Grid>
               <Grid item sm={2}>
-                <MeterContainer className="first-meter">
+                <MeterContainer>
                   <Meter />
                   <LeftLine />
                   <CenterLine />
@@ -175,7 +142,7 @@ export const Home = () => {
               </Grid>
               <Grid item sm={5}></Grid>
             </Grid>
-            <Grid container sx={{ alignItems: "center" }} >
+            <Grid container sx={{ alignItems: "center" }}>
               <Grid item sm={5}></Grid>
               <Grid item sm={2}>
                 <MeterContainer>
@@ -245,7 +212,9 @@ export const Home = () => {
             <Grid container item xs={12} sm={5}>
               <Grid item>
                 <SampleOutputTag>
-                  More Options, Better Choices
+                  More Options,
+                  <br />
+                  Better Choices
                 </SampleOutputTag>
               </Grid>
               <Grid item>
@@ -261,15 +230,12 @@ export const Home = () => {
             </Grid>
             <Grid container item xs={12} sm={7}>
               <CarasoleContainer>
-                <BeforeText><Liner />Before</BeforeText>
                 <Image src={Rectangle175} />
                 <Image196 src={Rectangle196} />
                 <Image195 src={Rectangle195} />
                 <Image197 src={Rectangle197} />
                 <Image184 src={Rectangle184} />
                 <Image185 src={Rectangle185} />
-                <Image200 src={connectingArrow} />
-                <AfterText><Liner />After</AfterText>
               </CarasoleContainer>
             </Grid>
           </Grid>
@@ -300,21 +266,21 @@ export const Home = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item container xs={12} sm={6} style={{ alignItems: 'center' }}>
-              <DesignTextInfo>
-                <DesignConsistency>
-                  Consistency in Design Made Easy
-                </DesignConsistency>
-                <ConsistencyText>
-                  If you loved the design of your previous room and want to maintain
-                  the same theme setting for multiple rooms in your house, our Match
-                  Style feature is here to help. Simply click the button after
-                  generating your room photo, and our Al- powered tool will generate
-                  similar style options for your other rooms. This feature not only
-                  saves you time, but it also ensures consistency in design,
-                  especially if you're an interior designer.
-                </ConsistencyText>
-              </DesignTextInfo>
+            <Grid item container xs={12} sm={6}>
+              <DesignConsistency>
+                Consistency in Design
+                <br />
+                Made Easy
+              </DesignConsistency>
+              <ConsistencyText>
+                If you loved the design of your previous room and want to maintain
+                the same theme setting for multiple rooms in your house, our Match
+                Style feature is here to help. Simply click the button after
+                generating your room photo, and our Al- powered tool will generate
+                similar style options for your other rooms. This feature not only
+                saves you time, but it also ensures consistency in design,
+                especially if you're an interior designer.
+              </ConsistencyText>
             </Grid>
           </Grid>
         </Container>
@@ -322,30 +288,11 @@ export const Home = () => {
       <FAQContainer>
         <Container maxWidth='lg'>
           <FAQTag>FAQ</FAQTag>
-          {/* {faqQuestions.map((question, index) => (
+          {faqQuestions.map((question, index) => (
             <FAQCard key={index}>
               <FAQQuestion>{question}</FAQQuestion>
               <FAQToggle src={plusCircle} />
             </FAQCard>
-          ))} */}
-          {faqQuestions.map((question, index) => (
-            <DarkBlueAccordion>
-              <AccordionSummary
-                expandIcon={
-                  <ExpandIcon
-                    src={plusCircle}
-                    alt={"collapse" }
-                  />
-                }
-                aria-controls={index + " -" + "content"}
-                id={index + " -" + "header"}
-              >
-                <QuestionTypography>{question.que}</QuestionTypography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <AnswerTypography>{question.summary}</AnswerTypography>
-              </AccordionDetails>
-            </DarkBlueAccordion>
           ))}
         </Container>
       </FAQContainer>
@@ -386,18 +333,18 @@ export const Home = () => {
       <FooterWrapper>
         <Container maxWidth='lg'>
           <FooterBanner>
-            <BottomLeftOverlay />
-            <TopRigthOverlay />
-            <FooterTag>Ready to design your dream room?</FooterTag>
-            <FooterSubTag>
-              Try our free Al room design tool and experience the power of
-              Al-powered
-              <br />
-              interior design software today!
-            </FooterSubTag>
-            <DesignDreamRoom href="/room-design">
-              Design your dream room
-            </DesignDreamRoom>
+          <BottomLeftOverlay />
+          <TopRigthOverlay />
+          <FooterTag>Ready to design your dream room?</FooterTag>
+          <FooterSubTag>
+            Try our free Al room design tool and experience the power of
+            Al-powered
+            <br />
+            interior design software today!
+          </FooterSubTag>
+          <DesignDreamRoom href="/room-design">
+            Design your dream room
+          </DesignDreamRoom>
           </FooterBanner>
         </Container>
       </FooterWrapper>
@@ -405,85 +352,7 @@ export const Home = () => {
   );
 };
 
-const DarkBlueAccordion = styled(Accordion)`
-  margin: 10px 0;
-  border-radius: 10px !important;
-  background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.42) 25.71%, rgba(8, 86, 86, 0.42) 80.11%);
-  padding: 36px 52px;
-  padding-right: auto;
-`;
-
-const QuestionTypography = styled(Typography)`
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 30px;
-  text-align: left;
-  color: #fff;
-`;
-
-const AnswerTypography = styled(Typography)`
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  text-align: left;
-  color: #FFFFFF;
-`;
-
-const ExpandIcon = styled(Image)`
-  width: 40px;
-  height: 40px;
-`;
-
-const DesignTextInfo = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-  gap: 20px;
-`
-
-const BeforeText = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  position: absolute;
-  top: -5%;
-  left: 38%;
-  color: #fff;
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 25px; 
-`;
-const Liner = styled.span`
-  display: block;
-  width: 3px;
-  height: 20px;
-  background-color: #0DB3B3;
-`;
-const AfterText = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  position: absolute;
-  bottom: -42%;
-  right: -13%;
-  color: #fff;
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 25px; 
-`;
-
-const FooterWrapper = styled.div`
-  background-color: #0D1A1E;`
-;
+const FooterWrapper = styled.div``;
 const TopRigthOverlay = styled.div`
   position: absolute;
   top: -264px;
@@ -512,7 +381,7 @@ const CenterLine = styled.div`
 
 const MeterContainer = styled.div`
   position: relative;
-  height: 150px;
+  height: 170px;
 `;
 
 const LeftLine = styled.div`
@@ -546,8 +415,7 @@ const Meter = styled.div`
 `;
 
 const StepsContainer = styled.div`
-  margin: 100px 0;
- 
+  margin: 3rem 0;
 `;
 
 const LeftStep = styled.div`
@@ -567,50 +435,25 @@ const RightStep = styled.div`
 `;
 
 const LeftStepCount = styled.div`
-  border-radius: 50%;
-  width: 94px;
-    height: 94px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: #223238;
-    border: 11px solid #0E1A1F;
-    min-width: 94px;
-    min-height: 94px;
-    margin-top: -2px;
+  width: 6rem;
+  border: 0.9rem solid #0e1a1f;
+  border-radius: 100%;
 `;
 
 const RightStepCount = styled.div`
-border-radius: 50%;
-width: 94px;
-  height: 94px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #223238;
-  border: 11px solid #0E1A1F;
-  min-width: 94px;
-  min-height: 94px;
-  margin-top: -2px;
+  width: 7rem;
+  border: 0.9rem solid #0e1a1f;
+  border-radius: 100%;
 `;
 
 const StepText = styled.p`
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 16px;
-text-align: center;
-
-color: #FFFFFF;
+  margin-top: 0.7rem;
+  font-size: 17px;
 `;
 
 const Count = styled.p`
-font-weight: 700;
-font-size: 32px;
-line-height: 40px;
-text-align: center;
-color: #FFFFFF;
-font-family: "Gilroy-Bold";
+  font-size: 32px;
+  font-weight: bold;
 `;
 
 const StepDescription = styled.p`
@@ -670,15 +513,17 @@ const TopSection = styled.div`
   padding: 6rem 0 3rem;
   overflow: hidden;
   z-index: 0;
-  background-color: #132024;
   
-  &.first-section{
-    padding: 6rem 0 100px !important;
-    overflow: visible;
+  &::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1;
-    background-color: transparent;
+    background: rgba(0, 217, 247, 0.1);
   }
-  
 `;
 
 const DesignDreamRoom = styled(Link)`
@@ -701,21 +546,7 @@ const DesignDreamRoom = styled(Link)`
     border-radius: 5px;
   }
 `;
-const DownBtnArrow = styled(Link)`
-  width: 62px;
-  height: 62px;
-  background: #223238;
-  border: 11px solid #0E1A1F;
-  position: absolute;
-  bottom: -46px;
-  border-radius: 50%;
-  z-index: 5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const ArrowImage = styled(Image)`
-`;
+
 const HowToUseContainer = styled.div`
   padding: 4rem 0 2rem;
   background: #131f23;
@@ -723,12 +554,11 @@ const HowToUseContainer = styled.div`
 
 const HowToUseTag = styled.p`
   color: #fff;
-  font-weight: 500;
+  font-weight: 700;
   font-family: "Gilroy-Bold";
   font-size: 52px;
   line-height: 64px;
   text-align: center;
-  font-weight: 500;
 `;
 
 const HowToUseDescription = styled.p`
@@ -743,45 +573,12 @@ const HowToUseDescription = styled.p`
 
 const PreviewContainer = styled.div`
   padding: 4rem 0;
-    &.second-section{
-      position: relative;
-      overflow: hidden;
-      padding-top: 80px;
-      padding-bottom: 160px;
-      &::before{
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #0e1d21;
-        border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-        transform: scaleX(2.7);
-      }
-      &::after{
-        content: '';
-        position: absolute;
-        width: 629px;
-        height: 629px;
-        top: 405px;
-        left: -300px;
-        background: rgba(0, 217, 247, 0.1);
-        filter: blur(200px);
-        border-radius: 50%;
-      }
-    }
 `;
-const TextSecondContent = styled.div`
-    position: relative;
-    &.second-360-line{
-      margin-top: 100px;
-    }
-`;
+
 const PreviewTitle = styled.p`
   font-size: 52px;
+  font-weight: 700;
   font-family: 'Gilroy-Bold';
-  font-weight: 500;
   line-height: 64px;
   text-align: center;
   color: #fff;
@@ -798,31 +595,22 @@ width: 95%;
 `;
 
 const OutputSample = styled.div`
-  padding: 5rem 0;
-  margin-bottom: 9rem;
-  background-color: #0D1A1E;
+  padding: 14rem 0;
+  padding-top: 5rem;
 `;
 
 const SampleOutputTag = styled.p`
   color: #fff;
-  font-size: 36px;
-  line-height: 45px;
-  font-weight: 700;
-  font-family: "Gilroy-Bold";
+  font-size: 35px;
+  font-weight: bold;
   text-align: left;
   margin-top: 4rem;
-  margin-bottom: 1rem;
-  width: 55%;
 `;
 
 const SampleOutputDescription = styled.p`
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 30px;
-  text-align: left;
+  font-size: 18px;
   color: #fff;
+  text-align: left;
 `;
 
 const CarasoleContainer = styled.div`
@@ -854,11 +642,6 @@ const Image184 = styled(Image)`
   left: 86%;
   z-index: 6001;
 `;
-const Image200 = styled(Image)`
-  position: absolute;
-  top: 25%;
-  right: -15%;
-`;
 
 const Image185 = styled(Image)`
   position: absolute;
@@ -868,26 +651,19 @@ const Image185 = styled(Image)`
 
 const BeforeAfterContainer = styled.div`
   padding: 4rem 0;
-  background-color: #0D1A1E;
 `;
 
 const DesignConsistency = styled.p`
-  font-family: 'Gilroy-Bold';
-  font-style: normal;
-  font-weight: 700;
   font-size: 36px;
-  line-height: 45px;
+  font-weight: bold;
   color: #fff;
+  margin-top: 10rem;
   text-align: left;
-  width: 70%;
+  height: 0;
 `;
 
 const ConsistencyText = styled.p`
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 18px;
   color: #fff;
   text-align: left;
 `;
@@ -902,20 +678,13 @@ const DecoratedText = styled.p`
 
 const FAQContainer = styled.div`
   padding: 4rem 0;
-  background-color: #0D1A1E;
 `;
 
-const FAQTag = styled.h5`
-  font-family: 'Gilroy-Bold';
-  font-style: normal;
-  font-weight: 700;
+const FAQTag = styled.p`
   font-size: 52px;
-  line-height: 64px;
-  text-align: center;
   color: #fff;
+  font-weight: bold;
   margin-bottom: 2rem;
-  font-family: "Gilroy-Bold";
-  font-weight: 500;
 `;
 
 const FAQCard = styled.div`
@@ -941,16 +710,14 @@ const FAQToggle = styled(Image)`
 `;
 
 const FeedbackContainer = styled.div`
-  padding: 4rem 0 10rem;
-  background-color: #0D1A1E;
+  padding: 4rem 0;
 `;
 
 const FeedbackHeading = styled.p`
   font-size: 52px;
+  font-weight: bold;
   color: #fff;
   margin: 1rem 0;
-  font-family: "Gilroy-Bold";
-  font-weight: 500;
 `;
 
 const FeedbackSubheading = styled.p`
@@ -991,6 +758,8 @@ const UserFeeback = styled.p`
 const FooterBanner = styled.div`
   background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.42) 25.71%, rgba(8, 86, 86, 0.42) 80.11%);
   border-radius: 25px;
+  margin: 5rem 0;
+  margin-bottom: 6.5rem;
   position: relative;
   overflow: hidden;
 `;
@@ -998,10 +767,8 @@ const FooterBanner = styled.div`
 // #0db2b2 for adding gradient in footer banner
 
 const FooterTag = styled.p`
-  font-size: 42px;
+  font-size: 40px;
   font-weight: bold;
-  font-family: "Gilroy-Bold";
-  font-weight: 500;
   color: #fff;
   padding: 2rem 0 1rem;
 `;
