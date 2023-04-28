@@ -23,3 +23,87 @@ p {
   margin: 0;
   font-family: "Quicksand";
 }
+
+
+/* form css  */
+.custom-FormControle {
+  min-width: 40%;
+}
+
+@media screen and (max-width:425px) {
+  .custom-FormControle {
+    min-width: 85%;
+  }
+}
+
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  padding: 28px 36px;
+}
+
+.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
+  display: none;
+}
+
+.MuiInputBase-formControl {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.MuiInputBase-formControl::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  right: 14px;
+  top: 32px;
+  border-right: 2px solid #0DB3B3;
+  border-top: 2px solid #0DB3B3;
+  transform: rotate(135deg);
+  z-index: 5;
+}
+
+.MuiInputBase-formControl.Mui-focused::after {
+  transform: rotate(-45deg);
+  top: 38px;
+}
+
+.css-7xfirh-MuiButtonBase-root-MuiButton-root {
+  border: 1px solid transparent;
+}
+
+.MuiSelect-select:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.css-yz9k0d-MuiInputBase-input::placeholder {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+/* radio switch */
+.css-1kr1bme-MuiSwitch-root {
+  width: auto !important;
+  height: auto !important;
+}
+
+.css-1kr1bme-MuiSwitch-root .MuiSwitch-switchBase.Mui-checked:hover {
+  background-color: transparent;
+}
+
+.css-1kr1bme-MuiSwitch-root .MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+  background: #223238;
+}
+
+.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase {
+  top: 8px;
+  left: 12px;
+}
+
+.MuiSwitch-root .Mui-checked.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase {
+  left: 44px;
+}

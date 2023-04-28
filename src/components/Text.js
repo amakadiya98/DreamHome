@@ -19,19 +19,31 @@ export const FormLabel = ({ number, text }) => {
 
 const LabelContainer = styled.div`
   display: flex;
-  margin: 0.7rem 0;
+  margin: 0 0 25px;
 `;
 
 const LabelNumber = styled.p`
   height: 20px;
   width: 20px;
-  background: #d9d9d9;
-  color: #000;
+  background: #D9D9D9;
   border-radius: 5px;
-  margin-right: 5px;
+  color: #000;
+  margin-right: 12px;
   text-align: center;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #064545;
 `;
 
 const LabelText = styled.p`
   color: #fff;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
 `;

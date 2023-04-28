@@ -15,20 +15,17 @@ export const Footer = () => {
   return (
     <Contianer>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-          <FooterText>Contact support: contact@newroom.io</FooterText>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          style={{ textAlign: "right", alignSelf: "center" }}
-        >
-          <SocialImage src={twitter} alt="Twitter" />
-          <SocialImage src={youtube} alt="Youtube" />
-          <SocialImage src={instagram} alt="Instagram" />
-          <SocialImage src={tiktok} alt="Tiktok" />
-        </Grid>
+        <FooterArea>
+          <Grid>
+            <FooterText>Contact support: contact@newroom.io</FooterText>
+          </Grid>
+          <Grid>
+              <SocialImage src={twitter} alt="Twitter" />
+              <SocialImage src={youtube} alt="Youtube" />
+              <SocialImage src={instagram} alt="Instagram" />
+              <SocialImage src={tiktok} alt="Tiktok" />
+          </Grid>
+        </FooterArea>
       </Grid>
     </Contianer>
   );
@@ -37,9 +34,22 @@ export const Footer = () => {
 const Contianer = styled(Container)`
   border-top: 1px solid #5f5f5f;
   min-height: 120px;
-  line-height: 120px;
+  padding-top: 41px;
+  padding-bottom: 72px;
+  @media (max-width:425px){
+    padding-bottom:17px;
+  }
 `;
-
+const FooterArea = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  @media (max-width:425px){
+    display: block;
+    text-align: center;
+  }
+`;
 const SocialImage = styled(Image)`
   margin: 0 10px;
 `;
@@ -48,4 +58,9 @@ const FooterText = styled.p`
   color: #ffff;
   font-size: 18px;
   font-weight: 100;
+  @media (max-width:425px){
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 26px;
+  }
 `;

@@ -22,7 +22,6 @@ const HeaderContianer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0, 217, 247, 0.1);
   flex: 1 1 auto;
   margin: 0;
   padding: 1.5rem 0;
@@ -45,17 +44,29 @@ export const HeadingAndSubHeading = () => {
 
 const Containers = styled.div`
   text-align: center;
-  margin-top: 5rem;
+  margin-top: 150px;
+  @media (max-width: 425px) {
+    margin-top: 45px;
+  }
 `;
 
 const SubHeading = styled.h2`
   color: #0db2b2;
   font-size: 20px;
+  margin-bottom: 12px;
 `;
 
 const Heading = styled.h1`
-  color: #ffffff;
-  font-size: 82px;
   font-family: "Gilroy-Bold";
-  font-weight: 500;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 82px;
+  line-height: 102px;
+  text-align: center;
+  color: #FFFFFF;
+
+  @media (max-width: 425px){
+    font-size: 37px;
+    line-height: 47px;
+  }
 `;

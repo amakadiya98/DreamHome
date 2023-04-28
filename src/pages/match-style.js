@@ -20,17 +20,18 @@ export default function RoomDesign() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+    <Body>
       <MainContainer>
         <HeadingAndSubHeading />
         <CreditInfo />
         <Container>
-          <FormControl sx={{ m: 1, minWidth: "60%" }}>
+          <FormControl className="custom-FormControle">
             <FormLabel number={1} text={"Choose your room type"} />
             <SelectStyled>
               <MenuItem value="">Normal Photo</MenuItem>
             </SelectStyled>
           </FormControl>
-          <FormControl sx={{ m: 1, minWidth: "60%" }}>
+          <FormControl className="custom-FormControle">
             <FormLabel number={2} text={"Snap or upload your room photo"} />
             <FileDragAndDrop>
               <UploadButton>Upload your room Photo</UploadButton>
@@ -40,16 +41,43 @@ export default function RoomDesign() {
           <SubmitButton>Design your Room</SubmitButton>
         </Container>
       </MainContainer>
+    </Body>
     </>
   );
 }
 
+const Body = styled.div`
+  background-color : #0E1A1F;
+  overflow: hidden;
+  position: relative;
+  :after{
+    content: "";
+    width: 829px;
+    height: 829px;
+    background: rgba(0, 217, 247, 0.2);
+    filter: blur(323.5px);
+    position: absolute;
+    top: -22%;
+    right: -10%;
+  }
+  :before{
+    content: "";
+    width: 829px;
+    height: 829px;
+    background: rgba(0, 217, 247, 0.2);
+    filter: blur(323.5px);
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+  }
+`;
+
 const Container = styled.div`
-  margin-top: 2rem;
+  margin-top: 91px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 5rem;
+  margin-bottom: 157px;
 `;
 
 const SelectStyled = styled(Select)`
@@ -67,34 +95,60 @@ const FileDragAndDrop = styled.div`
 `;
 
 const UploadButton = styled(Button)`
-  height: 52px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
   background: #109797;
   text-transform: none;
   color: #fff;
-  padding: 0px 15px;
-  margin: 1rem 0;
-  width: 14rem;
+  padding: 15px 23px;
+  margin: 6px 0;
+  :hover{
+    border: 1px solid #0DB3B3;
+    border-radius: 5px;
+  }
 `;
 
 const SnapButton = styled(Button)`
-  height: 52px;
   background: #109797;
   text-transform: none;
   color: #fff;
-  padding: 0px 15px;
+  padding: 17px 70px;
   background: none;
   border: 1px solid #0db2b2;
-  margin: 1rem 0;
-  width: 14rem;
+  margin: 6px 0;
 `;
 
 const SubmitButton = styled(Button)`
-  height: 52px;
+  margin-top: 40px !important;
   background: #ffffff;
   text-transform: none;
   color: #0db2b2;
-  padding: 0px 15px;
-  margin-top: 1rem;
-  font-weight: bold;
+  padding: 15px 20px;
+  position: relative;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
   font-size: 18px;
+  line-height: 22px;
+  border: 1px solid transparent;
+  &::before{
+    position: absolute;
+    content:'';
+    width: 190px;
+    height: 52px;
+    background: #0DB3B3;
+    filter: blur(12.5px);
+    border-radius: 5px;
+    z-index: -1;
+  }
+  &:hover{
+    background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.42) 25.71%, rgba(8, 86, 86, 0.42) 80.11%);
+    border: 1px solid #0DB3B3;
+    border-radius: 2px;
+    &::before{
+      display: none;
+    }
+  }
+ 
 `;

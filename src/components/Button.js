@@ -18,9 +18,12 @@ const StyledButton = styled(Button)`
   line-height: 22px;
   background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.42) 25.71%, rgba(8, 86, 86, 0.42) 80.11%);
   transition: all 0.3s ease-in;
+  position: relative;
+  z-index: 9;
   &:hover {
     background: linear-gradient(107.95deg, #109797 30.24%, #24B3B3 70.79%);
-    border: 1px solid transparent;
-    border-radius: 5px;
+  }
+  @media (max-width:390px){
+    padding: 0.7rem 0.5rem;
   }
 `;
