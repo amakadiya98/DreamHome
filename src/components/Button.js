@@ -26,14 +26,4 @@ const StyledButton = styled(Button)`
   @media (max-width:390px){
     padding: 0.7rem 0.5rem;
   }
-
-  @media screen and (max-width: 599px) {
-    font-size: 16px;
-    line-height: 20px;
-  }
-  @media screen and (max-width: 400px) {
-    font-size: 14px;
-    line-height: 18px;
-    padding: 7px 14px;
-  }
 `;

@@ -17,7 +17,6 @@ export default function MainContainer({ children }) {
 const Body = styled.div`
 &.mainGredient{
   position: relative;
-  overflow-x: hidden; 
   &::before{
     content: '';
     position: absolute;
