@@ -20,6 +20,10 @@ import Rectangle193 from "@/assets/Rectangle193.png";
 import Rectangle194 from "@/assets/Rectangle194.png";
 import DownArrow from "@/assets/down-icon.png";
 import connectingArrow from "@/assets/connetingArrow.png";
+import firstRight from "@/assets/firstRIght.png";
+import firstLeft from "@/assets/firstLeft.png";
+import secondRight from "@/assets/secondRight.png";
+import secondLeft from "@/assets/secondLeft.png";
 import { faqQuestions } from "../../constant";
 import MyAccordion from "./Accordion";
 import { UseMediaQuery } from "@mui/material";
@@ -27,6 +31,7 @@ import { UseMediaQuery } from "@mui/material";
 export const Home = () => {
   const [isExpanded, setIsExpanded] = React.useState(false);
   const isSmallScreen = useMediaQuery('(max-width: 599px)');
+  const isXSScreen = useMediaQuery('(max-width: 350px)');
   const images = [
     {
       src: Rectangle196,
@@ -56,9 +61,7 @@ export const Home = () => {
         <Container maxWidth='lg' style={{ zIndex: "2" }}>
           <SubHeading>1,300 rooms generated and counting</SubHeading>
           <Heading>
-            Design your Dream Rooms
-            <br />
-            with Al.
+            Design your Dream Rooms with Al.
           </Heading>
           <Tag>Transform Your Space with Our 100% Free Al Themes:</Tag>
           <StrongTag>
@@ -108,7 +111,7 @@ export const Home = () => {
           <HowToUseTag>How to Use?</HowToUseTag>
           <HowToUseDescription>Step-by-Step Guide</HowToUseDescription>
           <StepsContainer>
-            <Grid container sx={{ alignItems: "center", maxWidth: isSmallScreen ? '90%' : '100%' , margin: isSmallScreen ? '0 auto' : '0' }}>
+            <Grid container sx={{ alignItems: "center", maxWidth: isSmallScreen ? '90%' : '100%', margin: isSmallScreen ? '0 auto' : '0' }}>
               <Grid item sm={5} xs={12}>
                 <LeftStep>
                   <LeftStepCount>
@@ -129,7 +132,7 @@ export const Home = () => {
               </Grid>
               <Grid item sm={5}></Grid>
             </Grid>
-            <Grid container sx={{ alignItems: "center", flexDirection: isSmallScreen ? 'column-reverse' : 'row', maxWidth: isSmallScreen ? '90%' : '100%' , margin: isSmallScreen ? '0 auto' : '0' }} >
+            <Grid container sx={{ alignItems: "center", flexDirection: isSmallScreen ? 'column-reverse' : 'row', maxWidth: isSmallScreen ? '90%' : '100%', margin: isSmallScreen ? '0 auto' : '0' }} >
               <Grid item sm={5}></Grid>
               <Grid item sm={2} xs={12}>
                 <MeterContainer>
@@ -151,7 +154,7 @@ export const Home = () => {
                 </RightStep>
               </Grid>
             </Grid>
-            <Grid container sx={{ alignItems: "center", maxWidth: isSmallScreen ? '90%' : '100%' , margin: isSmallScreen ? '0 auto' : '0' }}>
+            <Grid container sx={{ alignItems: "center", maxWidth: isSmallScreen ? '90%' : '100%', margin: isSmallScreen ? '0 auto' : '0' }}>
               <Grid item sm={5} xs={12}>
                 <LeftStep>
                   <LeftStepCount>
@@ -172,7 +175,7 @@ export const Home = () => {
               </Grid>
               <Grid item sm={5}></Grid>
             </Grid>
-            <Grid container sx={{ alignItems: "center", flexDirection: isSmallScreen ? 'column-reverse' : 'row', maxWidth: isSmallScreen ? '90%' : '100%' , margin: isSmallScreen ? '0 auto' : '0' }} >
+            <Grid container sx={{ alignItems: "center", flexDirection: isSmallScreen ? 'column-reverse' : 'row', maxWidth: isSmallScreen ? '90%' : '100%', margin: isSmallScreen ? '0 auto' : '0' }} >
               <Grid item sm={5} ></Grid>
               <Grid item sm={2} xs={12}>
                 <MeterContainer>
@@ -193,7 +196,7 @@ export const Home = () => {
                 </RightStep>
               </Grid>
             </Grid>
-            <Grid container sx={{ alignItems: "center",maxWidth: isSmallScreen ? '90%' : '100%' , margin: isSmallScreen ? '0 auto' : '0' }}>
+            <Grid container sx={{ alignItems: "center", maxWidth: isSmallScreen ? '90%' : '100%', margin: isSmallScreen ? '0 auto' : '0' }}>
               <Grid item sm={5} xs={12}>
                 <LeftStep>
                   <LeftStepCount>
@@ -212,9 +215,9 @@ export const Home = () => {
               </Grid>
               <Grid item sm={5}></Grid>
             </Grid>
-            <Grid container sx={{ alignItems: "center", flexDirection: isSmallScreen ? 'column-reverse' : 'row', maxWidth: isSmallScreen ? '90%' : '100%' , margin: isSmallScreen ? '0 auto' : '0' }}>
+            <Grid container sx={{ alignItems: "center", flexDirection: isSmallScreen ? 'column-reverse' : 'row', maxWidth: isSmallScreen ? '90%' : '100%', margin: isSmallScreen ? '0 auto' : '0' }}>
               <Grid item sm={5}></Grid>
-              <Grid item sm={2} xs={12} sx={{display: isSmallScreen ? "none" : 'block'}}>
+              <Grid item sm={2} xs={12} sx={{ display: isSmallScreen ? "none" : 'block' }}>
                 <MeterContainer>
                   <Meter />
                   <RightLine />
@@ -286,6 +289,12 @@ export const Home = () => {
                     <FourGridImage src={Rectangle193} alt="1" />
                     <DecoratedText>< Liner />After</DecoratedText>
                   </SingleBox>
+                  <ImageContainer>
+                    <LeftImage src={firstLeft} alt="leftImg" />
+                    <BfText>Before</BfText>
+                    <RightImage src={firstRight} alt="RightImg" />
+                    <AfText>After</AfText>
+                  </ImageContainer>
                 </TopDiv>
                 <TopDiv>
                   <SingleBox>
@@ -296,6 +305,12 @@ export const Home = () => {
                     <FourGridImage src={Rectangle194} alt="1" />
                     <DecoratedText>< Liner />After</DecoratedText>
                   </SingleBox>
+                  <ImageContainer>
+                    <LeftImage src={firstLeft} alt="leftImg" />
+                    <BfText>Before</BfText>
+                    <RightImage src={firstRight} alt="RightImg" />
+                    <AfText>After</AfText>
+                  </ImageContainer>
                 </TopDiv>
               </MainDiv>
             </Grid>
@@ -347,7 +362,7 @@ export const Home = () => {
                     <Grid item xs={3}>
                       <Image src={userFeeback} style={{ margin: "1rem" }} />
                     </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={9} sx={{ paddingLeft: isXSScreen ? '15px' : '0' }}>
                       <FeedbackUser>Sarah Johnson</FeedbackUser>
                       <FeedbackUserJob>Interior Designer</FeedbackUserJob>
                     </Grid>
@@ -383,6 +398,104 @@ export const Home = () => {
   );
 };
 
+const BfText = styled.div`
+  display: flex;
+  height: 20px;
+  padding-left: 8px;
+  border-left: 2px solid #0DB3B3;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
+  position: absolute;
+  bottom: 22%;
+  left: 15%;
+
+  @media screen and (max-width: 400px) {
+    bottom: 28%;
+    left: 10%;
+  }
+
+  @media screen and (max-width: 350px) {
+    left: 5%;
+  }
+`;
+
+const AfText = styled.div`
+  display: flex;
+  height: 20px;
+  padding-left: 8px;
+  border-left: 2px solid #0DB3B3;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
+  position: absolute;
+  bottom: 22%;
+  right: 10%;
+
+  @media screen and (max-width: 400px) {
+    bottom: 28%;
+    right: 22%;
+  }
+
+  @media screen and (max-width: 350px) {
+    right: 30%;
+  }
+`;
+const ImageContainer = styled.div`
+  display: flex;
+  position: relative;
+  width: 400px;
+  height: 300px;
+  margin: 0 auto;
+
+
+  @media screen and (min-width: 600px) {
+    display: none;
+  }
+`;
+
+const LeftImage = styled(Image)`
+  position: absolute;
+  left: 7%;
+  bottom: 43%;
+  width: 164px;
+  height: 147px;
+  z-index: 10;
+
+  @media screen and (max-width: 400px) {
+    width: 140px;
+    height: 125px;
+    bottom: 50%;
+  }
+
+  @media screen and (max-width: 350px) {
+    left: 0;
+  }
+`;
+
+const RightImage = styled(Image)`
+  position: absolute;
+  right: 5%;
+  width: 226px;
+  height: 202px;
+  z-index: 6;
+
+  @media screen and (max-width: 400px) {
+    right: 15%;
+    width: 200px;
+    height: 180px;
+  }
+
+  @media screen and (max-width: 350px) {
+    right: 27%;
+  }
+`;
 const ContentTab = styled.div`
   width: 95%;
   margin: 0 auto;
@@ -397,7 +510,10 @@ const TopDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  
+  @media screen and (max-width: 599px) {
+    height: 250px;
+  }
 `;
 
 const SingleBox = styled.div`
@@ -407,8 +523,8 @@ const SingleBox = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
-  @media screen and (max-width: 899px) {
-
+  @media screen and (max-width: 599px) {
+    display: none;
   }
 `;
 
@@ -465,6 +581,7 @@ const DesignTextInfo = styled.div`
   @media screen and (max-width: 899px) {
     padding-top: 3rem;
   }
+
 `
 
 const BeforeText = styled.div`
@@ -484,6 +601,18 @@ const BeforeText = styled.div`
   @media screen and (max-width: 1100px) {
     top: -3%;
     left: 56%;
+  }
+
+  @media screen and (max-width: 500px) {
+    left: 48%;
+  }
+
+  @media screen and (max-width: 450px) {
+    left: 45%;
+  }
+
+  @media screen and (max-width: 350px) {
+    left: 35%;
   }
 `;
 const Liner = styled.span`
@@ -509,6 +638,19 @@ const AfterText = styled.div`
   @media screen and (max-width: 1100px) {
     bottom: -5%;
     right: 29%; 
+  }
+
+  @media screen and (max-width: 500px) {
+    right: unset;
+    left: 50%;
+  }
+
+  @media screen and (max-width: 450px) {
+    left: 45%;
+  }
+
+  @media screen and (max-width: 350px) {
+    left: 35%;
   }
 `;
 
@@ -681,6 +823,8 @@ const StepDescription = styled.p`
 const ContainerWrapper = styled.div`
   text-align: center;
   position: relative;
+  background-color: #0D1A1E;
+  padding-bottom: 8rem;
 `;
 
 const SubHeading = styled.h2`
@@ -691,6 +835,11 @@ const SubHeading = styled.h2`
   line-height: 25px;
   text-align: center;
   color: #0DB3B3;
+
+  @media screen and (max-width: 599px) {
+    font-size: 15px;
+    line-height: 19px;
+  }
 `;
 
 const Heading = styled.h1`
@@ -699,12 +848,24 @@ const Heading = styled.h1`
   line-height: 102px;
   font-family: "Gilroy-Bold";
   font-weight: 700;
+
+  @media screen and (max-width: 599px) {
+    font-size: 36.7px;
+    line-height: 45px;
+    text-align: center;
+  }
 `;
 
 const Tag = styled.p`
   color: #ffffff;
   font-size: 18px;
   margin-top: 0.8rem;
+
+  @media screen and (max-width: 599px) {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+  }
 `;
 
 const StrongTag = styled.p`
@@ -758,6 +919,10 @@ const DesignDreamRoom = styled(Link)`
     border: 1px solid #0DB3B3;
     border-radius: 5px;
   }
+
+  @media (max-width: 375px) {
+    padding: 18px 10px;
+  }
 `;
 const DownBtnArrow = styled(Link)`
   width: 62px;
@@ -787,6 +952,11 @@ const HowToUseTag = styled.p`
   line-height: 64px;
   text-align: center;
   font-weight: 500;
+
+  @media screen and (max-width: 599px) {
+    font-size: 30px;
+    line-height: 37px;
+  }
 `;
 
 const HowToUseDescription = styled.p`
@@ -797,6 +967,11 @@ const HowToUseDescription = styled.p`
   font-weigth: 700;
   font-family: "Quicksand";
   font-weight: bold;
+
+  @media screen and (max-width: 599px) {
+    font-size: 24px;
+    line-height: 30px;
+  }
 `;
 
 const PreviewContainer = styled.div`
@@ -843,6 +1018,11 @@ const PreviewTitle = styled.p`
   line-height: 64px;
   text-align: center;
   color: #fff;
+
+  @media screen and (max-width: 599px) {
+    font-size: 30px;
+    line-height: 37px;
+  }
 `;
 
 const PreviewLabel = styled.p`
@@ -891,6 +1071,11 @@ const SampleOutputTag = styled.p`
     width: 100%;
     text-align: center;
   }
+
+  @media screen and (max-width: 599px) {
+    font-size: 24px;
+    line-height: 30px;
+  }
 `;
 
 const SampleOutputDescription = styled.p`
@@ -905,6 +1090,11 @@ const SampleOutputDescription = styled.p`
   @media screen and (max-width: 899px) {
     text-align: center;
   }
+
+  @media screen and (max-width: 599px) {
+    font-size: 14px;
+    line-height: 24px;
+  }
 `;
 
 const CarasoleContainer = styled.div`
@@ -913,6 +1103,10 @@ const CarasoleContainer = styled.div`
   @media screen and (max-width: 899px) {
     left: 14%;
     top: 10%;
+  }
+
+  @media screen and (max-width: 599px) {
+    left: 0;
   }
 `;
 
@@ -930,6 +1124,18 @@ const Image197 = styled(Image)`
   @media screen and (max-width: 899px) {
     top: 105%;
   }
+
+  @media screen and (max-width: 500px) {
+    left: 9%;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 300px;
+    height: auto;
+  }
+  @media screen and (max-width: 350px) {
+    left: 0;
+  }
 `;
 
 const Image195 = styled(Image)`
@@ -943,6 +1149,14 @@ const Image195 = styled(Image)`
   }
   @media screen and (max-width: 899px) {
     top: 110%;
+  }
+
+  @media screen and (max-width: 500px) {
+    left: 0;
+  }
+
+  @media screen and (max-width: 450px) {
+    display: none;
   }
 `;
 
@@ -958,6 +1172,10 @@ const Image196 = styled(Image)`
   @media screen and (max-width: 899px) {
     top: 120%;
   }
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const Image175 = styled(Image)`
@@ -965,6 +1183,19 @@ const Image175 = styled(Image)`
   left: 0;
   @media screen and (max-width: 1100px) {
     left: 15%;
+  }
+
+  @media screen and (max-width: 500px) {
+    left: 5%;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 300px;
+    height: auto;
+  }
+
+  @media screen and (max-width: 350px) {
+    left: 0;
   }
 `;
 
@@ -981,6 +1212,14 @@ const Image184 = styled(Image)`
 
   @media screen and (max-width: 899px) {
     top: 110%;
+  }
+
+  @media screen and (max-width: 500px) {
+    left: 39%;
+  }
+
+  @media screen and (max-width: 450px) {
+    display: none;
   }
 `;
 const Image200 = styled(Image)`
@@ -1005,6 +1244,10 @@ const Image185 = styled(Image)`
 
   @media screen and (max-width: 899px) {
     top: 120%;
+  }
+
+  @media screen and (max-width: 500px) {
+    display: none;
   }
 `;
 
@@ -1034,6 +1277,11 @@ const DesignConsistency = styled.p`
   @media screen and (max-width: 899px) {
     width: 100%;
     text-align: center;
+  }
+
+  @media screen and (max-width: 599px) {
+    font-size: 24px;
+    line-height: 30px;
   }
 `;
 
@@ -1114,6 +1362,12 @@ const FeedbackHeading = styled.p`
   margin: 1rem 0;
   font-family: "Gilroy-Bold";
   font-weight: 500;
+
+  @media screen and (max-width: 599px) {
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+  }
 `;
 
 const FeedbackSubheading = styled.p`
@@ -1124,6 +1378,11 @@ const FeedbackSubheading = styled.p`
   line-height: 25px;
   text-align: center;
   color: #FFFFFF;
+
+  @media screen and (max-width: 599px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
 `;
 
 const FeedbackCard = styled.div`
@@ -1145,6 +1404,11 @@ const FeedbackUser = styled.p`
   text-align: left;
   margin-top: 1rem;
   font-weight: bold;
+
+  @media screen and (max-width: 599px) {
+    font-size: 20px;
+    line-height: 25px;
+  }
 `;
 
 const FeedbackUserJob = styled.p`
@@ -1152,13 +1416,24 @@ const FeedbackUserJob = styled.p`
   text-align: left;
   color: #fff;
   margin-top: 0.2rem;
+
+  @media screen and (max-width: 599px) {
+    font-size: 14px;
+    line-height: 18px;
+  }
 `;
 
 const UserFeeback = styled.p`
   font-size: 15px;
+  font-weight: 400;
   color: #fff;
   text-align: left;
   margin: 0 1rem 0rem 1rem;
+
+  @media screen and (max-width: 599px) {
+    font-size: 15px;
+    line-height: 163%;
+  }
 `;
 
 const FooterBanner = styled.div`
@@ -1183,6 +1458,12 @@ const FooterTag = styled.p`
   z-index: 5;
   width: 90%;
   margin: 0 auto;
+
+  @media screen and (max-width: 599px) {
+    font-size: 27.5px;
+    line-height: 32px;
+    text-align: center;
+  }
 `;
 
 const FooterSubTag = styled.p`
