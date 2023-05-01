@@ -28,7 +28,7 @@ const Body = styled.div`
     height: 830px;
     background: rgba(0, 217, 247, 0.1);
     filter: blur(323.5px);
-    z-index: 0;
+    z-index: 1;
     overflow: hidden;
   }
   }

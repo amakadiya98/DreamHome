@@ -4,6 +4,12 @@ import styled from "@emotion/styled";
 import { Container, Grid, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import userFeeback from "@/assets/userFeeback.png";
+import Ellipse4 from '@/assets/Ellipse4.png';
+import Ellipse5 from '@/assets/Ellipse5.png';
+import Ellipse81 from '@/assets/Ellipse81.png';
+import Ellipse82 from '@/assets/Ellipse82.png';
+import Ellipse83 from '@/assets/Ellipse83.png';
+import Ellipse84 from '@/assets/Ellipse84.png';
 import normal1 from "@/assets/normal1.png";
 import normal2 from "@/assets/normal2.png";
 import img3601 from "@/assets/3601.png";
@@ -29,30 +35,45 @@ import MyAccordion from "./Accordion";
 import { UseMediaQuery } from "@mui/material";
 
 export const Home = () => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
   const isSmallScreen = useMediaQuery('(max-width: 599px)');
   const isXSScreen = useMediaQuery('(max-width: 350px)');
-  const images = [
+  const FeedBackUserDetails = [
     {
-      src: Rectangle196,
-      alt: 'Slide 1',
+      src: Ellipse4,
+      name: 'Sarah Johnson',
+      title: 'Interior Designer',
+      details: "I was blown away by how easy it was to use this AI-powered tool. The results were stunning and my clients loved it!",
     },
     {
-      src: Rectangle195,
-      alt: 'Slide 2',
+      src: Ellipse5,
+      name: 'John Davis',
+      title: 'Real Estate Agent',
+      details: "This tool has been a game changer for my business. I can now showcase properties like never before, and my clients are amazed by the realistic virtual staging!",
     },
     {
-      src: Rectangle197,
-      alt: 'Slide 3',
+      src: Ellipse81,
+      name: 'Emily Chen',
+      title: 'Real Estate Agent',
+      details: "I used this tool to redesign my living room and I couldn't be happier with the results. It's like having an interior designer at your fingertips!",
     },
     {
-      src: Rectangle184,
-      alt: 'Slide 4'
+      src: Ellipse82,
+      name: 'Michael Lee',
+      title: 'Architect',
+      details: "The AI technology used in this tool is impressive. It saves me so much time and effort, and the end results are always on point.",
     },
     {
-      src: Rectangle185,
-      alt: 'Slide 5'
-    }
+      src: Ellipse83,
+      name: 'Rachel Adams',
+      title: 'Real Estate Investor',
+      details: "This tool is a must-have for anyone in the real estate industry. It's affordable, easy to use, and the results are truly impressive.",
+    },
+    {
+      src: Ellipse84,
+      name: 'Tom Wilson',
+      title: 'Homebuyer',
+      details: "I was able to visualize my dream home with this tool. It's amazing how realistic the virtual staging looks, and it helped me make an informed decision on my purchase.",
+    },
   ];
 
   return (
@@ -79,27 +100,35 @@ export const Home = () => {
         <Container maxWidth='lg'>
           <TextSecondContent>
             <PreviewTitle>Normal Photos</PreviewTitle>
-            <Grid container columnSpacing={{ xs: 1 }} spacing={0}>
-              <Grid item xs={12} sm={6}>
-                <PreviewLabel>Before</PreviewLabel>
-                <PreviewImage src={normal1} />
+            <Grid container columnSpacing={{ xs: 1 }}>
+              <Grid item xs={12} sm={6} sx={{marginBottom: isSmallScreen ? '1rem' : '0'}}>
+                <PreviewDiv className="left-side">
+                  <PreviewLabel>Before</PreviewLabel>
+                  <PreviewImage src={normal1} />
+                </PreviewDiv>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <PreviewLabel>After</PreviewLabel>
-                <PreviewImage src={normal2} />
+                <PreviewDiv className="right-side">
+                  <PreviewLabel>After</PreviewLabel>
+                  <PreviewImage src={normal2} />
+                </PreviewDiv>
               </Grid>
             </Grid>
           </TextSecondContent>
           <TextSecondContent className="second-360-line">
             <PreviewTitle>360 Photos</PreviewTitle>
-            <Grid container columnSpacing={{ xs: 1 }} spacing={0}>
-              <Grid item xs={12} sm={6}>
-                <PreviewLabel>Before</PreviewLabel>
-                <PreviewImage src={img3601} />
+            <Grid container columnSpacing={{ xs: 1 }} >
+              <Grid item xs={12} sm={6} sx={{marginBottom: isSmallScreen ? '1rem' : '0'}}>
+                <PreviewDiv className="left-side">
+                  <PreviewLabel>Before</PreviewLabel>
+                  <PreviewImage src={img3601} />
+                </PreviewDiv>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <PreviewLabel>After</PreviewLabel>
-                <PreviewImage src={img3602} />
+                <PreviewDiv className="right-side">
+                  <PreviewLabel>After</PreviewLabel>
+                  <PreviewImage src={img3602} />
+                </PreviewDiv>
               </Grid>
             </Grid>
           </TextSecondContent>
@@ -277,8 +306,8 @@ export const Home = () => {
       </OutputSample>
       <BeforeAfterContainer>
         <Container maxWidth='lg'>
-          <Grid container>
-            <Grid item container sm={12} md={6}>
+          <Grid container sx={{flexDirection: isSmallScreen ? 'column-reverse' : 'row'}}>
+            <Grid item container sm={12} md={6} sx={{paddingTop: isSmallScreen ? '5rem' : '0'}}>
               <MainDiv>
                 <TopDiv>
                   <SingleBox>
@@ -286,7 +315,7 @@ export const Home = () => {
                     <DecoratedText>< Liner />Before</DecoratedText>
                   </SingleBox>
                   <SingleBox>
-                    <FourGridImage src={Rectangle193} alt="1" />
+                    <FourGridImage src={Rectangle192} alt="1" />
                     <DecoratedText>< Liner />After</DecoratedText>
                   </SingleBox>
                   <ImageContainer>
@@ -298,7 +327,7 @@ export const Home = () => {
                 </TopDiv>
                 <TopDiv>
                   <SingleBox>
-                    <FourGridImage src={Rectangle192} alt="1" />
+                    <FourGridImage src={Rectangle193} alt="1" />
                     <DecoratedText>< Liner />Before</DecoratedText>
                   </SingleBox>
                   <SingleBox>
@@ -306,9 +335,9 @@ export const Home = () => {
                     <DecoratedText>< Liner />After</DecoratedText>
                   </SingleBox>
                   <ImageContainer>
-                    <LeftImage src={firstLeft} alt="leftImg" />
+                    <LeftImage src={secondLeft} alt="leftImg" />
                     <BfText>Before</BfText>
-                    <RightImage src={firstRight} alt="RightImg" />
+                    <RightImage src={secondRight} alt="RightImg" />
                     <AfText>After</AfText>
                   </ImageContainer>
                 </TopDiv>
@@ -343,6 +372,7 @@ export const Home = () => {
           </ContentTab>
         </Container>
       </FAQContainer>
+      
       <FeedbackContainer>
         <Container maxWidth='lg'>
           <FeedbackHeading>What Our Users Are Saying</FeedbackHeading>
@@ -355,21 +385,20 @@ export const Home = () => {
             columns={{ xs: 12, sm: 6, md: 4 }}
             style={{ marginTop: "1rem", justifyContent: "center" }}
           >
-            {Array.from(Array(6)).map((_, index) => (
+            {FeedBackUserDetails.map((fduser, index) => (
               <Grid item key={index}>
                 <FeedbackCard>
                   <Grid container item xs={12} >
                     <Grid item xs={3}>
-                      <Image src={userFeeback} style={{ margin: "1rem" }} />
+                      <Image src={fduser.src} style={{ margin: "1rem" }} alt={fduser.name} />
                     </Grid>
-                    <Grid item xs={9} sx={{ paddingLeft: isXSScreen ? '15px' : '0' }}>
-                      <FeedbackUser>Sarah Johnson</FeedbackUser>
-                      <FeedbackUserJob>Interior Designer</FeedbackUserJob>
+                    <Grid item xs={9} sx={{ paddingLeft: isXSScreen ? '15px' : '8px' }}>
+                      <FeedbackUser>{fduser.name}</FeedbackUser>
+                      <FeedbackUserJob>{fduser.title}</FeedbackUserJob>
                     </Grid>
                   </Grid>
                   <UserFeeback>
-                    "I was blown away by how easy it was to use this AI-powered
-                    tool. The results were stunning and my clients loved it!"
+                    {`"${fduser.details}"`}
                   </UserFeeback>
                 </FeedbackCard>
               </Grid>
@@ -397,6 +426,33 @@ export const Home = () => {
     </ContainerWrapper>
   );
 };
+
+const PreviewDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 10px;
+
+  &.left-side{
+    align-items: flex-end;
+    margin-right: 10px;
+
+    @media (max-width: 599px) {
+      align-items: center;
+      margin-right: 0;
+    }
+  }
+
+  &.right-side{
+    align-items: flex-start;
+    margin-left: 10px;
+
+    @media (max-width: 599px) {
+      align-items: center;
+      margin-left: 0;
+    }
+  }
+`;
 
 const BfText = styled.div`
   display: flex;
@@ -533,6 +589,7 @@ const FourGridImage = styled(Image)`
   height: auto;
   object-fit: cover;
   object-position: center;
+  margin-bottom: -20px;
 `;
 
 const GridContent = styled(Grid)`
@@ -583,7 +640,9 @@ const DesignTextInfo = styled.div`
     padding-top: 3rem;
     padding-left: 0;
   }
-
+  @media (max-width: 599px) {
+    padding-top: 0;
+  }
 `
 
 const BeforeText = styled.div`
@@ -667,6 +726,12 @@ const TopRigthOverlay = styled.div`
   height: 400px;
   background: #0DB3B3;
   filter: blur(85.5px);
+
+  @media (max-width: 599px) {
+    left: -300px;
+    right: unset;
+    filter: blur(110.5px);
+  }
 `
 const BottomLeftOverlay = styled.div`
   position: absolute;
@@ -676,6 +741,12 @@ const BottomLeftOverlay = styled.div`
   height: 400px;
   background: #0DB3B3;
   filter: blur(85.5px);
+
+  @media (max-width: 599px) {
+    right: -300px;
+    left: unset;
+    filter: blur(110.5px);
+  }
 `;
 const CenterLine = styled.div`
   width: 2px;
@@ -743,7 +814,10 @@ const Meter = styled.div`
 
 const StepsContainer = styled.div`
   margin: 100px 0;
- 
+  
+  @media (max-width: 599px) {
+    margin: 65px 0;
+  }
 `;
 
 const LeftStep = styled.div`
@@ -811,14 +885,19 @@ font-family: "Gilroy-Bold";
 
 const StepDescription = styled.p`
   font-size: 16px;
+  line-height: 20px;
   align-self: center;
-  padding: 0 1rem;
+  padding: 1rem 2rem;
   text-align: left;
   font-family: "Quicksand";
-  font-weight: bold;
+  font-weight: 500;
 
   @media screen and (max-width: 767px) {
     font-size: 13px;
+  }
+
+  @media screen and (max-width: 350px) {
+    padding: 8px 15px;
   }
 `;
 
@@ -857,6 +936,11 @@ const Heading = styled.h1`
     font-size: 36.7px;
     line-height: 45px;
     text-align: center;
+  }
+
+  @media (max-width: 350px) {
+    font-size: 30px;
+    line-height: 40px;
   }
 `;
 
@@ -924,8 +1008,10 @@ const DesignDreamRoom = styled(Link)`
     border-radius: 5px;
   }
 
-  @media (max-width: 375px) {
-    padding: 18px 10px;
+  @media (max-width: 599px) {
+    font-size: 16px;
+    line-height:20px;
+    padding: 16px 12px;
   }
 `;
 const DownBtnArrow = styled(Link)`
@@ -1007,6 +1093,13 @@ const PreviewContainer = styled.div`
         filter: blur(200px);
         border-radius: 50%;
       }
+
+      @media (max-width: 599px) {
+        padding-bottom: 90px;
+        &:before {
+          transform: scaleX(3.8);
+        }
+      }
     }
 `;
 const TextSecondContent = styled.div`
@@ -1031,16 +1124,23 @@ const PreviewTitle = styled.p`
 
 const PreviewLabel = styled.p`
   font-size: 20px;
-  margin: 1rem;
   color: #fff;
+  width: 85%;
+  text-align: center;
 `;
 
 const PreviewImage = styled(Image)`
-  width: 95%;
-  height: auto;
+  width: 480px;
+  height: 418px;
 
-  @media screen and (max-width: 600px) {
+  @media (max-width: 1100px) {
+    width: 90%;
+    height: auto;
+  }
+
+  @media (max-width: 600px) {
     width: 85%;
+    height: auto;
   }
 `;
 
@@ -1262,6 +1362,11 @@ const BeforeAfterContainer = styled.div`
   @media screen and (max-width: 899px) {
     padding-top: 8rem;
   }
+
+  @media (max-width: 599px) {
+    padding-top: 2rem;
+    padding-bottom: 0;
+  }
 `;
 
 const DesignConsistency = styled.p`
@@ -1318,6 +1423,10 @@ const DecoratedText = styled.p`
 const FAQContainer = styled.div`
   padding: 4rem 0;
   background-color: #0D1A1E;
+
+  @media (max-width: 599px) {
+    padding: 1rem 0;
+  }
 `;
 
 const FAQTag = styled.h5`
@@ -1387,27 +1496,39 @@ const FeedbackSubheading = styled.p`
     font-size: 16px;
     line-height: 20px;
   }
+
+  
 `;
 
 const FeedbackCard = styled.div`
-  border: 1px solid #fff;
+  border: 1px solid #0DB3B3;
+  filter: drop-shadow(0px 27px 65px rgba(0, 0, 0, 0.15));
+  border-radius: 10px;
   height: 210px;
   width: 310px;
-  border-radius: 10px;
-  padding: 2rem 0 0;
+  padding: 24px 16px;
+
+  @media screen and (max-width: 751px) {
+    width: 280px;
+    height: 220px;
+  }
 
   @media screen and (max-width: 599px) {
     width: 90%;
+    height: auto;
     margin: 5px auto;
   }
 `;
 
 const FeedbackUser = styled.p`
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
   font-size: 20px;
-  color: #fff;
+  line-height: 25px;
   text-align: left;
+  color: #FFFFFF;
   margin-top: 1rem;
-  font-weight: bold;
 
   @media screen and (max-width: 599px) {
     font-size: 20px;
@@ -1428,8 +1549,11 @@ const FeedbackUserJob = styled.p`
 `;
 
 const UserFeeback = styled.p`
-  font-size: 15px;
+  font-family: 'Quicksand';
+  font-style: normal;
   font-weight: 400;
+  font-size: 15px;
+  line-height: 163%;
   color: #fff;
   text-align: left;
   margin: 0 1rem 0rem 1rem;

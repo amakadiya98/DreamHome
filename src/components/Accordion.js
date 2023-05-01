@@ -9,11 +9,15 @@ import minusIcon from "@/assets/minusIcon.png";
 import Image from "next/image";
 
 const DarkBlueAccordion = styled(Accordion)`
-  margin: 10px 0;
+  margin: 15px auto;
   border-radius: 10px !important;
   background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.42) 25.71%, rgba(8, 86, 86, 0.42) 80.11%);
   padding: 36px 52px;
   padding-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 90%;
 
   @media screen and (max-width: 899px) {
     padding: 24px;
@@ -57,24 +61,17 @@ const ExpandIcon = styled(Image)`
 `;
 
 const MyAccordion = ({ question, index}) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleAccordion = () => {
-    setIsExpanded(!isExpanded);
-  };
 
   return (
     <DarkBlueAccordion>
       <AccordionSummary
-        isExpanded={isExpanded}
-        expandIcon={<ExpandIcon src={isExpanded ? minusIcon : plusCircle } />}
+        expandIcon={<ExpandIcon src={plusCircle} />}
         aria-controls={index + " -" + "content"}
         id={index + " -" + "header"}
-        onClick={toggleAccordion}
       >
         <QuestionTypography>{question.que}</QuestionTypography>
       </AccordionSummary>
-      <AccordionDetails>
+      <AccordionDetails className="accordion-content">
         <AnswerTypography>{question.summary}</AnswerTypography>
       </AccordionDetails>
     </DarkBlueAccordion>

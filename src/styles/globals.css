@@ -132,3 +132,7 @@ p {
     height: 15px;
   }
 }
+/* accordion changes */
+.MuiAccordion-root.Mui-expanded .MuiAccordionSummary-expandIconWrapper{
+  transform: rotate(225deg) !important;
+}
