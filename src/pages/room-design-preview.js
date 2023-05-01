@@ -38,12 +38,13 @@ export default function RoomDesign() {
         </Head>
       <Body>
         <MainContainer>
+        <ContentPartHere>
           <HeadingAndSubHeading />
           <RoomAndThemeType />
           <CompareContainer>
-            <SideBySide>Side by side</SideBySide>
+            <SideBySide className={!showCompare ? "active" : ""}>Side by side</SideBySide>
             <CompareSwitch onChange={handleSideBySideToCompare} />
-            <Compare>Compare</Compare>
+            <Compare className={showCompare ? "active" : ""}>Compare</Compare>
           </CompareContainer>
           <SliderContainer>
             <Container>
@@ -99,7 +100,7 @@ export default function RoomDesign() {
               Download HD Photo
             </DesignDreamRoom>
             <DesignDreamRoom
-              style={{ border: "2px solid #0DB2B2", background: "#081d23" }}
+              style={{ border: "1px solid #0DB2B2", background: "#081d23" }}
               href="/room-design"
               className="NewRoom"
             >
@@ -113,16 +114,28 @@ export default function RoomDesign() {
               Match Style (Beta)
             </DesignDreamRoom>
           </NavButton>
+          </ContentPartHere>
         </MainContainer>
       </Body>
     </>
   );
 }
 
+const ContentPartHere = styled.div`
+padding-left: 16px;
+padding-right: 16px;
+z-index: 9;
+position: relative;
+`
+
 const Image111 = styled(Image)`
-  width: 100%;
-  height: auto;
-  `;
+  // width: 100%;
+  // height: auto;
+  @media (max-width: 767px){
+    width: 100%;
+    height: auto;
+  }
+`;
 
 const Body = styled.div`
   background-color : #0E1A1F;
@@ -145,8 +158,8 @@ const Body = styled.div`
     background: rgba(0, 217, 247, 0.2);
     filter: blur(323.5px);
     position: absolute;
-    bottom: -20%;
-    left: -10%;
+    bottom: -30%;
+    left: -30%;
   }
 `;
 const Container = styled.div`
@@ -271,14 +284,25 @@ const CompareContainer = styled.div`
 
 const SideBySide = styled.p`
   font-size: 18px;
-  color: #fff;
-  font-weight: bold;
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.2);
+  &.active{
+    color: #FFFFFF;
+    font-family: "Gilroy-Bold";
+    font-weight: 600;
+  }
 `;
 
 const Compare = styled.p`
-  font-size: 18px;
-  color: #fff;
-  font-weight: bold;
+font-size: 18px;
+font-style: normal;
+color: rgba(255, 255, 255, 0.2);  
+&.active{
+  color: #FFFFFF;
+  font-family: "Gilroy-Bold";
+  font-weight: 600;
+  
+}
 `;
 
 const CompareSwitch = styled(Switch)(() => ({

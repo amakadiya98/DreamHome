@@ -18,6 +18,7 @@ export default function SignupVerification() {
       </Head>
     <Body>
       <MainContainer>
+      <ContentPartHere>
         <SignInHeader>You're almost signed up</SignInHeader>
         <SignInLabel>
           Enter the code we sent to julie@example.com to finish signing up.
@@ -39,11 +40,19 @@ export default function SignupVerification() {
             Didn't get the code? <HightLightText>Resend code</HightLightText>
           </ResendText>
         </Container>
+        </ContentPartHere>
       </MainContainer>
     </Body>
     </>
   );
 }
+
+const ContentPartHere = styled.div`
+padding-left: 16px;
+padding-right: 16px;
+z-index: 9;
+    position: relative;
+`
 
 const Body = styled.div`
   background-color : #0E1A1F;
@@ -68,10 +77,23 @@ const Body = styled.div`
     background: rgba(0, 217, 247, 0.2);
     filter: blur(323.5px);
     position: absolute;
-    bottom: -20%;
-    left: -10%;
+    bottom: -30%;
+    left: -30%;
     z-index: 2;
   }
+  @media (max-width: 768px){
+    &:before{
+      bottom: -25%;
+      left: -70%;
+      width: 600px;
+      height: 600px;
+    }
+    &:after{
+      top: -25%;
+      right: -60%;
+      width: 600px;
+      height: 600px;
+    }
 `;
 
 const ResendText = styled.p`
@@ -91,23 +113,17 @@ const HightLightText = styled.span`
 const InputLabel = styled.p`
   text-align: left;
   font-size: 18px;
-  padding: 22px 0;
+  padding: 22px 0 0;
   color: #fff;
   font-weight: bold;
 `;
 
 const InputEmail = styled(InputBase)`
-  border: 1px solid #fff;
-  border-radius: 5px;
-  font-size: 16px;
-  padding: 29px 44px;
-  color: #fff;
   width: 100%;
   position: relative;
   z-index: 9;
-
   @media (max-width: 991px) {
-    padding: 20px 24px;
+    padding: 0;
   }
 `;
 
@@ -117,11 +133,13 @@ const SignInHeader = styled.h1`
   color: #fff;
   margin: 8rem 0 1rem;
   font-family: "Gilroy-Bold";
-
+  font-weight: 500;
   @media (max-width:768px){
     font-size:45px;
   }
-
+  @media (max-width:767px){
+    margin: 4rem 0 1rem;
+  }
   @media (max-width:425px) {
     font-size: 37px;
     width: 80%;
@@ -175,6 +193,7 @@ const ContinueButton = styled(Button)`
   border-radius: 5px
   text-transform: none;
   margin: 22px 0;
+  width: 190px;
   :hover{
     background: transparent;
     border: 1px solid #0DB3B3;

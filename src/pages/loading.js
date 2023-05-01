@@ -68,15 +68,31 @@ const Body = styled.div`
     background: rgba(0, 217, 247, 0.2);
     filter: blur(323.5px);
     position: absolute;
-    bottom: -20%;
-    left: -10%;
+    bottom: -30%;
+    left: -30%;
     z-index: 2;
   }
+  @media (max-width: 768px){
+    &:before{
+      bottom: -25%;
+      left: -70%;
+      width: 600px;
+      height: 600px;
+    }
+    &:after{
+      top: -25%;
+      right: -60%;
+      width: 600px;
+      height: 600px;
+    }
 `;
 
 
 const LoadingAnimationContainer = styled.div`
   height: 280px;
+  @media (max-width: 599px){
+    margin-top: -80px;
+  }
 `;
 
 const SitTight = styled.p`

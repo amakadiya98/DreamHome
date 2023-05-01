@@ -31,5 +31,6 @@ const Body = styled.div`
     z-index: 0;
     overflow: hidden;
   }
+  }
 }
 `;

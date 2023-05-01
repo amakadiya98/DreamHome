@@ -93,8 +93,8 @@ const Body = styled.div`
     background: rgba(0, 217, 247, 0.2);
     filter: blur(323.5px);
     position: absolute;
-    bottom: -20%;
-    left: -10%;
+    bottom: -30%;
+    left: -30%;
   }
 `;
 

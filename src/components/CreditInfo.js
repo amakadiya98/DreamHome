@@ -34,6 +34,10 @@ const RemainingCredit = styled.p`
   font-size: 18px;
   font-family: 'Quicksand';
   font-weight: 400;
+  strong{
+    font-family: "Gilroy-Bold";
+    font-weight: 500;
+  }
   @media (max-width:425px){
     text-align: center;
   }
@@ -56,6 +60,10 @@ const RenewalDuration = styled.p`
   font-weight: 400;
   font-family: 'Quicksand';
   margin-left: 22px;
+  strong{
+    font-family: "Gilroy-Bold";
+    font-weight: 500;
+  }
   @media (max-width:425px){
     text-align: center;
   }

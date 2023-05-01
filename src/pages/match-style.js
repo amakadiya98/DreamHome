@@ -38,7 +38,7 @@ export default function RoomDesign() {
               <SnapButton>Snap your Room</SnapButton>
             </FileDragAndDrop>
           </FormControl>
-          <SubmitButton>Design your Room</SubmitButton>
+          <SubmitButton>Design your Room <strong className="shadow"></strong></SubmitButton>
         </Container>
       </MainContainer>
     </Body>
@@ -67,8 +67,8 @@ const Body = styled.div`
     background: rgba(0, 217, 247, 0.2);
     filter: blur(323.5px);
     position: absolute;
-    bottom: -20%;
-    left: -10%;
+    bottom: -30%;
+    left: -30%;
   }
 `;
 
@@ -101,8 +101,13 @@ const UploadButton = styled(Button)`
   background: #109797;
   text-transform: none;
   color: #fff;
-  padding: 15px 23px;
+  padding: 15px 12px;
   margin: 6px 0;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  width: 250px;
+  height: 52px;
   :hover{
     border: 1px solid #0DB3B3;
     border-radius: 5px;
@@ -113,10 +118,17 @@ const SnapButton = styled(Button)`
   background: #109797;
   text-transform: none;
   color: #fff;
-  padding: 17px 70px;
+  padding: 17px 12px;
   background: none;
   border: 1px solid #0db2b2;
   margin: 6px 0;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  width: 250px;
+  height: 52px;
 `;
 
 const SubmitButton = styled(Button)`
@@ -125,16 +137,26 @@ const SubmitButton = styled(Button)`
   text-transform: none;
   color: #0db2b2;
   padding: 15px 20px;
-  position: relative;
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
   border: 1px solid transparent;
-  &::before{
+  position: relative;
+  z-index: 9;
+  
+  // .shadow{
+  //   position: absolute;
+  //   width: 190px;
+  //   height: 52px;
+  //   background: #0DB3B3;
+  //   filter: blur(12.5px);
+  //   border-radius: 5px;
+  // // }
+  &::after{
     position: absolute;
-    content:'';
+    // content:'';
     width: 190px;
     height: 52px;
     background: #0DB3B3;

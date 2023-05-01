@@ -13,17 +13,17 @@ export const RoomAndThemeType = () => {
       }}
     >
       <Info>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={12}>
           <ChooseRoom>
-            Here's your new <strong>Choosed Room</strong>
+            Here's your new <strong>Choosed Room Typed</strong> in the <strong>Choosed Room Theme!</strong>
           </ChooseRoom>
         </Grid>
-        <Grid item xs={12} md={6}>
+        {/* <Grid item xs={12} md={6}>
           <TypedRoom>
             Typed in the
             <strong>Choosed Room Theme!</strong>
           </TypedRoom>
-        </Grid>
+        </Grid> */}
       </Info>
 
     </Grid>
@@ -32,10 +32,14 @@ export const RoomAndThemeType = () => {
 
 const ChooseRoom = styled.p`
 color: #ffff;
-text-align: right;
+text-align: center;
 font-size: 18px;
 font-family: 'Quicksand';
 font-weight: 400;
+strong{
+  font-family: "Gilroy-Bold";
+  font-weight: 500;
+}
 @media (max-width:425px){
   text-align: center;
 }

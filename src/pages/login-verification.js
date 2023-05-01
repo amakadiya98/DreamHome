@@ -18,6 +18,7 @@ export default function LoginVerification() {
       </Head>
     <Body>
       <MainContainer>
+        <ContentPartHere>
         <SignInHeader>Finish logging in</SignInHeader>
         <SignInLabel>
           Once you enter the code we sent to julie@example.com, you'll be all
@@ -40,11 +41,20 @@ export default function LoginVerification() {
             Didn't get the code? <HightLightText>Resend code</HightLightText>
           </ResendText>
         </Container>
+        </ContentPartHere>
       </MainContainer>
     </Body>
     </>
   );
 }
+
+
+const ContentPartHere = styled.div`
+padding-left: 16px;
+padding-right: 16px;
+z-index: 9;
+position: relative;
+`
 
 const Body = styled.div`
   background-color : #0E1A1F;
@@ -69,8 +79,8 @@ const Body = styled.div`
     background: rgba(0, 217, 247, 0.2);
     filter: blur(323.5px);
     position: absolute;
-    bottom: -20%;
-    left: -10%;
+    bottom: -30%;
+    left: -30%;
     z-index: 2;
   }
   @media screen and  (max-width: 425px){
@@ -98,23 +108,17 @@ const HightLightText = styled.span`
 const InputLabel = styled.p`
   text-align: left;
   font-size: 18px;
-  padding: 22px 0;
+  padding: 22px 0 0;
   color: #fff;
   font-weight: bold;
 `;
 
 const InputEmail = styled(InputBase)`
-  border: 1px solid #fff;
-  border-radius: 5px;
-  font-size: 16px;
-  padding: 29px 44px;
-  color: #fff;
   width: 100%;
   position: relative;
   z-index: 9;
-
   @media (max-width: 991px) {
-    padding: 20px 24px;
+    padding: 0;
   }
 `;
 
@@ -124,9 +128,13 @@ const SignInHeader = styled.h1`
   color: #fff;
   margin: 8rem 0 1rem;
   font-family: "Gilroy-Bold";
+  font-weight: 500;
 
   @media (max-width:768px){
     font-size:45px;
+  }
+  @media (max-width:767px){
+    margin: 4rem 0 1rem;
   }
 
   @media (max-width:425px) {
@@ -158,16 +166,12 @@ const SignInLabel = styled.p`
 `;
 
 const Container = styled.div`
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 190px;
   text-align: center;
 
   @media (max-width: 991px){
     margin-bottom: 223px;
-  }
-
-  @media (max-width: 425px) {
-    margin-top: 28px;
   }
 `;
 
@@ -184,6 +188,7 @@ const ContinueButton = styled(Button)`
   margin: 22px 0;
   position: relative;
   z-index: 9;
+  width: 190px;
   :hover{
     background: transparent;
     border: 1px solid #0DB3B3;

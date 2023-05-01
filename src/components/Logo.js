@@ -9,8 +9,8 @@ import newroom from "@/assets/newroom.png";
 export const MainLogo = () => {
   return (
     <LogoContainer>
-      <Image src={icon} alt="Logo" />
-      <Image src={newroom} alt="Newroom" />
+      <Image src={icon} alt="Logo" className="icon-logo"/>
+      <Image src={newroom} alt="Newroom" className="text-logo"/>
     </LogoContainer>
   );
 };

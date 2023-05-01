@@ -37,7 +37,7 @@ const HeaderContent = styled.div`
 
 export const HeadingAndSubHeading = () => {
   return (
-    <Containers>
+    <Containers className="room-design">
       <SubHeading>1,300 rooms generated and counting</SubHeading>
       <Heading>Design your Dream Rooms</Heading>
     </Containers>
@@ -47,6 +47,9 @@ export const HeadingAndSubHeading = () => {
 const Containers = styled.div`
   text-align: center;
   margin-top: 150px;
+  &.room-design{
+    margin-top: 60px;
+  }
   @media (max-width: 425px) {
     margin-top: 45px;
   }
@@ -66,6 +69,7 @@ const Heading = styled.h1`
   line-height: 102px;
   text-align: center;
   color: #FFFFFF;
+  font-weight: 500;
 
   @media (max-width: 768px){
     font-size: 52px;

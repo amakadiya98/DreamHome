@@ -26,14 +26,15 @@ const StyledButton = styled(Button)`
     border-radius: 5px;
     transition: all 0.3s ease-in;
   }
+
   @media screen and (max-width: 599px) {
     font-size: 16px;
     line-height: 20px;
+    padding: 8px 14px;
   }
   @media screen and (max-width: 400px) {
     font-size: 14px;
-    line-height: 18px;
-    padding: 7px 14px;
+    line-height: 18px;  
   }
 
   @media screen and (max-width: 350px) {

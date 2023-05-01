@@ -19,6 +19,7 @@ export default function SignInGoogle() {
       </Head>
     <Body>
       <MainContainer>
+        <ContentPartHere>
         <SignInHeader>Continue with Email</SignInHeader>
         <SignInLabel>
           We'll check if you have an account, and help you create one if you
@@ -38,12 +39,19 @@ export default function SignInGoogle() {
           </Grid>
           <ContinueButton>continue</ContinueButton>
         </Container>
+        </ContentPartHere>
       </MainContainer>
     </Body>
     </>
   );
 }
 
+const ContentPartHere = styled.div`
+padding-left: 16px;
+padding-right: 16px;
+z-index: 9;
+position: relative;
+`
 const Body = styled.div`
   background-color : #0E1A1F;
   overflow: hidden;
@@ -67,33 +75,40 @@ const Body = styled.div`
     background: rgba(0, 217, 247, 0.2);
     filter: blur(323.5px);
     position: absolute;
-    bottom: -20%;
-    left: -10%;
+    bottom: -30%;
+    left: -30%;
     z-index: 2;
   }
+  @media (max-width: 768px){
+    &:before{
+      bottom: -25%;
+      left: -70%;
+      width: 600px;
+      height: 600px;
+    }
+    &:after{
+      top: -25%;
+      right: -60%;
+      width: 600px;
+      height: 600px;
+    }
 `;
 
 const InputLabel = styled.p`
   text-align: left;
   font-size: 18px;
-  padding: 22px 0;
+  padding: 22px 0 0;
   color: #fff;
   font-weight: bold;
 `;
 
 const InputEmail = styled(InputBase)`
-  border: 1px solid #fff;
-  border-radius: 5px;
-  font-size: 16px;
-  padding: 29px 44px;
-  color: #fff;
-  width: 100%;
-  position: relative;
-  z-index: 9;
-
-  @media (max-width: 991px) {
-    padding: 20px 24px;
-  }
+width: 100%;
+position: relative;
+z-index: 9;
+@media (max-width: 991px) {
+  padding: 0;
+}
 `;
 
 const SignInHeader = styled.h1`
@@ -102,11 +117,13 @@ const SignInHeader = styled.h1`
   color: #fff;
   margin: 8rem 0 1rem;
   font-family: "Gilroy-Bold";
-
+  font-weight: 500;
   @media (max-width:768px){
     font-size:45px;
   }
-
+  @media (max-width:767px){
+    margin: 4rem 0 1rem;
+  }
   @media (max-width:425px) {
     font-size: 37px;
     width: 80%;
@@ -136,7 +153,7 @@ const SignInLabel = styled.p`
 `;
 
 const Container = styled.div`
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 190px;
   text-align: center;
 
@@ -162,6 +179,7 @@ const ContinueButton = styled(Button)`
   margin: 22px 0;
   position: relative;
   z-index: 9;
+  width: 190px;
     :hover{
     background: transparent;
     border: 1px solid #0DB3B3;

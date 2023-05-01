@@ -5,7 +5,6 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 
 import MainContainer from "@/components/Contianer/MainContainer";
-
 import google from "@/assets/google.png";
 import facebook from "@/assets/facebook.png";
 import mail from "@/assets/mail.png";
@@ -21,43 +20,50 @@ export default function SignInGoogle() {
       </Head>
     <Body>
       <MainContainer>
-        <SignInHeader>Log in or Sign up in Seconds</SignInHeader>
-        <SignInLabel>
-          Use your email or another service to create a free account and
-          redesign your room with our Al-powered interior design tool.
-        </SignInLabel>
-        <Container>
-          <SingInButton href={"google.come"}>
-            <Image
-              style={{ marginRight: "5px" }}
-              src={google}
-              alt="Continue with Google"
-            />
-            <p>Continue with Google</p>
-          </SingInButton>
-          <SingInButton href={"google.come"}>
-            <Image
-              style={{ marginRight: "5px" }}
-              src={facebook}
-              alt="Continue with Facebook"
-            />
-            <p>Continue with Facebook</p>
-          </SingInButton>
-          <SingInButton href={"google.come"}>
-            <Image
-              style={{ marginRight: "5px" }}
-              src={mail}
-              alt="Continue with Email"
-            />
-            <p>Continue with Email</p>
-          </SingInButton>
-        </Container>
+        <ContentPartHere>
+          <SignInHeader>Log in or Sign up in Seconds</SignInHeader>
+          <SignInLabel>
+            Use your email or another service to create a free account and
+            redesign your room with our Al-powered interior design tool.
+          </SignInLabel>
+          <Container>
+            <SingInButton href={"google.come"}>
+              <Image
+                style={{ marginRight: "5px" }}
+                src={google}
+                alt="Continue with Google"
+              />
+              <p>Continue with Google</p>
+            </SingInButton>
+            <SingInButton href={"google.come"}>
+              <Image
+                style={{ marginRight: "5px" }}
+                src={facebook}
+                alt="Continue with Facebook"
+              />
+              <p>Continue with Facebook</p>
+            </SingInButton>
+            <SingInButton href={"google.come"}>
+              <Image
+                style={{ marginRight: "5px" }}
+                src={mail}
+                alt="Continue with Email"
+              />
+              <p>Continue with Email</p>
+            </SingInButton>
+          </Container>
+        </ContentPartHere>
       </MainContainer>
     </Body>
     </>
   );
 }
-
+const ContentPartHere = styled.div`
+padding-left: 16px;
+padding-right: 16px;
+z-index: 9;
+    position: relative;
+`
 const Body = styled.div`
   background-color : #0E1A1F;
   overflow: hidden;
@@ -81,10 +87,23 @@ const Body = styled.div`
     background: rgba(0, 217, 247, 0.2);
     filter: blur(323.5px);
     position: absolute;
-    bottom: -20%;
-    left: -10%;
+    bottom: -30%;
+    left: -30%;
     z-index: 2;
   }
+  @media (max-width: 768px){
+    &:before{
+      bottom: -25%;
+      left: -70%;
+      width: 600px;
+      height: 600px;
+    }
+    &:after{
+      top: -25%;
+      right: -60%;
+      width: 600px;
+      height: 600px;
+    }
 `;
 
 const SignInHeader = styled.h1`
@@ -92,9 +111,14 @@ const SignInHeader = styled.h1`
   font-size: 82px;
   font-family: 'Gilroy-Bold';
   color: #fff;
-  margin: 8rem 0 2rem;
+  margin: 8rem 0 1rem;
+  font-family: "Gilroy-Bold";
+  font-weight: 500;
   @media (max-width:768px){
     font-size: 60px;
+  }
+  @media (max-width:767px){
+    margin: 4rem 0 1rem;
   }
   @media (max-width:425px){
     font-size:40px
@@ -106,10 +130,14 @@ const SignInLabel = styled.p`
   color: #ffffff;
   margin: 0px 5rem;
   text-align: center;
-  width: 66%;
+  width: 50%;
   margin : 1rem auto 0;
   @media (max-width:768px) {
     width: 75%;
+  }
+  @media (max-width:767px) {
+    font-size: 14px;
+    line-height: 22px;
   }
   @media (max-width:425px){
     width: 94%;
@@ -134,7 +162,7 @@ const SingInButton = styled(Link)`
   text-decoration: none;
   height: 62px;
   line-height: 62px;
-  padding: 0 25px;
+  padding: 0 22px;
   border-radius: 5px;
   font-family: Quicksand-Regular;
   width: 15rem;
@@ -146,6 +174,9 @@ const SingInButton = styled(Link)`
   z-index: 9;
   :hover{
     background: linear-gradient(107.95deg, #109797 30.24%, #24B3B3 70.79%);
+  }
+  @media (max-width: 767px){
+    justify-content: center;
   }
   @media (max-width: 425px){
     width: 82%;
