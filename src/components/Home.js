@@ -33,6 +33,19 @@ import secondLeft from "@/assets/secondLeft.png";
 import { faqQuestions } from "../../constant";
 import MyAccordion from "./Accordion";
 import { UseMediaQuery } from "@mui/material";
+// import Carousel from "react-spring-3d-carousel";
+// import uuidv4 from "uuid";
+import { config } from "react-spring";
+
+import loadable from "@loadable/component";
+const Carousel = loadable(() => import("react-spring-3d-carousel"))
+
+
+const getTouches = (evt) => {
+  return (
+    evt.touches || evt.originalEvent.touches // browser API
+  );
+};
 
 export const Home = () => {
   const isSmallScreen = useMediaQuery('(max-width: 599px)');
@@ -75,6 +88,107 @@ export const Home = () => {
       details: "I was able to visualize my dream home with this tool. It's amazing how realistic the virtual staging looks, and it helped me make an informed decision on my purchase.",
     },
   ];
+  const [state, setState] = React.useState({
+    goToSlide: 8,
+    offsetRadius: 8,
+    showNavigation: false,
+    enableSwipe: true,
+    config: config.default,
+    margin: 150,
+  })
+
+  const handleKeyDown = (e) => {
+    switch (e.keyCode) {
+      case 37:
+        setState({ goToSlide: state.goToSlide - 1 });
+        break;
+      case 39:
+        setState({ goToSlide: state.goToSlide + 1 });
+        break;
+      default:
+        break;
+    }
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      removeEventListener("keydown", handleKeyDown);
+    }
+  })
+
+  const [expanded, setExpanded] = React.useState(false)
+  
+  const handleChange = (panel) => {
+    setExpanded(expanded !== panel ? panel : false);
+  };
+
+  var slides = [
+    {
+      key: 1,
+      content: <Image196 src={Rectangle196} className="image-part"/>
+    },
+    {
+      key: 2,
+      content: <Image195 src={Rectangle195} className="image-part"/>
+    },
+    {
+      key: 3,
+      content: <Image197 src={Rectangle197} className="image-part"/>
+    },
+    {
+      key: 4,
+      content: <Image184 src={Rectangle184} className="image-part"/>
+    },
+    {
+      key: 5,
+      content: <Image185 src={Rectangle185} className="image-part"/>
+    }
+  ].map((slide, index) => {
+    return { ...slide, onClick: () => setState({ goToSlide: index }) };
+  });
+
+  const handleTouchStart = (evt) => {
+    if (!state.enableSwipe) {
+      return;
+    }
+
+    const firstTouch = getTouches(evt)[0];
+    setState({
+      ...state,
+      xDown: firstTouch.clientX,
+      yDown: firstTouch.clientY
+    });
+  };
+
+  const handleTouchMove = (evt) => {
+    if (!state.enableSwipe || (!state.xDown && !state.yDown)) {
+      return;
+    }
+
+    let xUp = evt.touches[0].clientX;
+    let yUp = evt.touches[0].clientY;
+
+    let xDiff = state.xDown - xUp;
+    let yDiff = state.yDown - yUp;
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+      if (xDiff > 0) {
+        /* left swipe */
+        setState({
+          goToSlide: state.goToSlide + 1,
+          xDown: null,
+          yDown: null
+        });
+      } else {
+        /* right swipe */
+        setState({
+          goToSlide: state.goToSlide - 1,
+          xDown: null,
+          yDown: null
+        });
+      }
+    }
+  };
 
   return (
     <ContainerWrapper>
@@ -289,16 +403,31 @@ export const Home = () => {
               </InnerContentBottom>
             </GridContent>
             <Grid container item sm={12} md={7}>
-              <CarasoleContainer>
-                <BeforeText><Liner />Before</BeforeText>
-                <Image175 src={Rectangle175} />
-                <Image196 src={Rectangle196} />
-                <Image195 src={Rectangle195} />
-                <Image197 src={Rectangle197} />
-                <Image184 src={Rectangle184} />
-                <Image185 src={Rectangle185} />
-                <Image200 src={connectingArrow} />
+              <SliderInnerContent>
+                <BrforeContenetImage>
+                  <BeforeText><Liner />Before</BeforeText>
+                  <Image175 src={Rectangle175} />
+                </BrforeContenetImage>
+                <AfterSlideImage>
+                  <CarouselPart
+                    style={{ width: "12%", height: "200px", margin: "0 auto", transform: "scale(1.5)"}}
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    className="carousel-slider"
+                  >
+                    <Carousel
+                      slides={slides}
+                      goToSlide={state.goToSlide}
+                      offsetRadius={state.offsetRadius}
+                      showNavigation={state.showNavigation}
+                      animationConfig={state.config}
+                      className="slider-image-part"
+                    />
+                  </CarouselPart>
                 <AfterText><Liner />After</AfterText>
+                </AfterSlideImage>
+              </SliderInnerContent>
+              <CarasoleContainer>
               </CarasoleContainer>
             </Grid>
           </Grid>
@@ -367,7 +496,7 @@ export const Home = () => {
           <FAQTag>F A Q</FAQTag>
           <ContentTab>
             {faqQuestions.map((question, index) => (
-              <MyAccordion question={question} index={index} />
+              <MyAccordion handleChange={handleChange} expanded={expanded} question={question} index={index} />
             ))}
           </ContentTab>
         </Container>
@@ -427,6 +556,43 @@ export const Home = () => {
   );
 };
 
+const SliderInnerContent = styled.div`
+width: 100%;
+position: relative;
+@media (max-width: 1024px){
+  margin-left: -40px;
+}
+@media (max-width: 991px){
+  margin-top: 4rem;
+}
+@media (max-width: 767px){
+  margin-left: 0;
+}
+`;
+const BrforeContenetImage = styled.div`
+  position: relative;
+  display: flex;
+    justify-content: flex-start;
+`;
+const AfterSlideImage = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -135px;
+    margin-right: -190px;
+    @media (max-width: 767px){
+      margin-top: 5rem;
+      margin-right: 0;
+    }
+`;
+const CarouselPart = styled.div`
+  &.carousel-slider{
+    img{
+      width: auto;
+      opacity: 1 !important;
+      filter: drop-shadow(7px 25px 32px rgba(0, 0, 0, 0.48));
+    }
+  }
+`;
 const PreviewDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -651,7 +817,7 @@ const BeforeText = styled.div`
   gap: 10px;
   position: absolute;
   top: -5%;
-  left: 38%;
+  left: 28%;
   color: #fff;
   font-family: 'Quicksand';
   font-style: normal;
@@ -661,7 +827,11 @@ const BeforeText = styled.div`
   
   @media screen and (max-width: 1100px) {
     top: -3%;
-    left: 56%;
+    left: 45%;
+  }
+  @media screen and (max-width: 991px) {
+    top: -3%;
+    left: 38%;
   }
 
   @media screen and (max-width: 500px) {
@@ -687,8 +857,8 @@ const AfterText = styled.div`
   align-items: center;
   gap: 10px;
   position: absolute;
-  bottom: -42%;
-  right: -13%;
+  bottom: -18%;
+  right: 28%;
   color: #fff;
   font-family: 'Quicksand';
   font-style: normal;
@@ -697,10 +867,13 @@ const AfterText = styled.div`
   line-height: 25px; 
 
   @media screen and (max-width: 1100px) {
-    bottom: -5%;
-    right: 29%; 
+    bottom: -18%;
+    right: 28%; 
   }
-
+  @media screen and (max-width: 767px) {
+    top: -15%;
+    left: 50%;
+  }
   @media screen and (max-width: 500px) {
     right: unset;
     left: 50%;
@@ -931,7 +1104,10 @@ const Heading = styled.h1`
   line-height: 102px;
   font-family: "Gilroy-Bold";
   font-weight: 700;
-
+  @media screen and (max-width: 991px) {
+    font-size: 60px;
+    line-height: 80px;
+  }
   @media screen and (max-width: 599px) {
     font-size: 36.7px;
     line-height: 45px;
@@ -1151,7 +1327,7 @@ const OutputSample = styled.div`
 
   @media screen and (max-width: 899px) {
     padding: 0;
-    padding-bottom: 20rem;
+    padding-bottom: 2rem;
   }
 `;
 
@@ -1168,6 +1344,7 @@ const SampleOutputTag = styled.p`
 
   @media screen and (max-width: 1100px) {
     width: 70%;
+    margin-top:0;
   }
 
   @media screen and (max-width: 899px) {
@@ -1215,71 +1392,15 @@ const CarasoleContainer = styled.div`
 `;
 
 const Image197 = styled(Image)`
-  position: absolute;
-  top: 50%;
-  left: 58%;
-  z-index: 6002;
-
-  @media screen and (max-width: 1100px) {
-    top: 80%;
-    left: 19%;
-  }
-
-  @media screen and (max-width: 899px) {
-    top: 105%;
-  }
-
-  @media screen and (max-width: 500px) {
-    left: 9%;
-  }
-
-  @media screen and (max-width: 450px) {
-    width: 300px;
-    height: auto;
-  }
-  @media screen and (max-width: 350px) {
-    left: 0;
-  }
+  
 `;
 
 const Image195 = styled(Image)`
-  position: absolute;
-  left: 50%;
-  top: 56%;
-
-  @media screen and (max-width: 1100px) {
-    left: 11%;
-    top: 84%;
-  }
-  @media screen and (max-width: 899px) {
-    top: 110%;
-  }
-
-  @media screen and (max-width: 500px) {
-    left: 0;
-  }
-
-  @media screen and (max-width: 450px) {
-    display: none;
-  }
+  
 `;
 
 const Image196 = styled(Image)`
-  position: absolute;
-  top: 66%;
-  left: 46%;
-
-  @media screen and (max-width: 1100px) {
-    left: 10%;
-    top: 92%;
-  }
-  @media screen and (max-width: 899px) {
-    top: 120%;
-  }
-
-  @media screen and (max-width: 500px) {
-    display: none;
-  }
+  
 `;
 
 const Image175 = styled(Image)`
@@ -1304,27 +1425,7 @@ const Image175 = styled(Image)`
 `;
 
 const Image184 = styled(Image)`
-  position: absolute;
-  top: 56%;
-  left: 86%;
-  z-index: 6001;
-
-  @media screen and (max-width: 1100px) {
-    top: 83%;
-    left: 47%;
-  }
-
-  @media screen and (max-width: 899px) {
-    top: 110%;
-  }
-
-  @media screen and (max-width: 500px) {
-    left: 39%;
-  }
-
-  @media screen and (max-width: 450px) {
-    display: none;
-  }
+  
 `;
 const Image200 = styled(Image)`
   position: absolute;
@@ -1337,22 +1438,7 @@ const Image200 = styled(Image)`
 `;
 
 const Image185 = styled(Image)`
-  position: absolute;
-  top: 66%;
-  left: 111%;
-
-  @media screen and (max-width: 1100px) {
-    top: 90%;
-    left: 70%;
-  }
-
-  @media screen and (max-width: 899px) {
-    top: 120%;
-  }
-
-  @media screen and (max-width: 500px) {
-    display: none;
-  }
+ 
 `;
 
 const BeforeAfterContainer = styled.div`
@@ -1364,7 +1450,7 @@ const BeforeAfterContainer = styled.div`
   }
 
   @media (max-width: 599px) {
-    padding-top: 2rem;
+    padding-top: 4rem;
     padding-bottom: 0;
   }
 `;
@@ -1467,6 +1553,9 @@ const FAQToggle = styled(Image)`
 const FeedbackContainer = styled.div`
   padding: 4rem 0 10rem;
   background-color: #0D1A1E;
+  @media (max-width: 991px){
+    padding: 4rem 0 4rem;
+  }
 `;
 
 const FeedbackHeading = styled.p`

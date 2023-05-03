@@ -121,7 +121,9 @@ p {
     margin: 12px 0px 0px;
     outline: none;
 }
-
+.text-logo{
+  width: 50%;
+}
 @media screen and (max-width: 767px){
   .icon-logo{
     width: 50px;
@@ -135,4 +137,11 @@ p {
 /* accordion changes */
 .MuiAccordion-root.Mui-expanded .MuiAccordionSummary-expandIconWrapper{
   transform: rotate(225deg) !important;
+}
+
+
+/* slider section */
+.carousel-slider .css-1fzpoyk{
+  /* transform: translateY(-50%) translateX(-30.6667%) scale(0.666667) !important; */
+  opacity: 1 !important;
 }

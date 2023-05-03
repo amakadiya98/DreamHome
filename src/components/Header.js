@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 
 import { MainLogo } from "@/components/Logo";
 import { HowToUseBtn } from "@/components/Button";
+import { ProfileLogout } from "@/components/ProfileLogout";
 
 export const MainHeader = () => {
   return (
@@ -11,7 +12,8 @@ export const MainHeader = () => {
       <Container maxWidth="lg">
         <HeaderContent>
           <MainLogo />
-          <HowToUseBtn />
+          {/* <HowToUseBtn /> */}
+          <ProfileLogout />
         </HeaderContent>
       </Container>
     </HeaderContianer>
