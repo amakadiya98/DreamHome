@@ -3,6 +3,7 @@ import * as React from 'react';
 import styled from "@emotion/styled";
 import { Container, Grid, useMediaQuery } from "@mui/material";
 import Image from "next/image";
+import Button from "@mui/material/Button";
 import userFeeback from "@/assets/userFeeback.png";
 import Ellipse4 from '@/assets/Ellipse4.png';
 import Ellipse5 from '@/assets/Ellipse5.png';
@@ -24,6 +25,8 @@ import Rectangle188 from "@/assets/Rectangle188.png";
 import Rectangle192 from "@/assets/Rectangle192.png";
 import Rectangle193 from "@/assets/Rectangle193.png";
 import Rectangle194 from "@/assets/Rectangle194.png";
+import Isolatedright from "@/assets/Isolated_right_hand_with_smartphone_1.png"
+import OldHome from "@/assets/Rectangle248.png";
 import DownArrow from "@/assets/down-icon.png";
 import connectingArrow from "@/assets/connetingArrow.png";
 import firstRight from "@/assets/firstRIght.png";
@@ -118,7 +121,7 @@ export const Home = () => {
   })
 
   const [expanded, setExpanded] = React.useState(false)
-  
+
   const handleChange = (panel) => {
     setExpanded(expanded !== panel ? panel : false);
   };
@@ -126,23 +129,23 @@ export const Home = () => {
   var slides = [
     {
       key: 1,
-      content: <Image196 src={Rectangle196} className="image-part"/>
+      content: <Image196 src={Rectangle196} className="image-part" />
     },
     {
       key: 2,
-      content: <Image195 src={Rectangle195} className="image-part"/>
+      content: <Image195 src={Rectangle195} className="image-part" />
     },
     {
       key: 3,
-      content: <Image197 src={Rectangle197} className="image-part"/>
+      content: <Image197 src={Rectangle197} className="image-part" />
     },
     {
       key: 4,
-      content: <Image184 src={Rectangle184} className="image-part"/>
+      content: <Image184 src={Rectangle184} className="image-part" />
     },
     {
       key: 5,
-      content: <Image185 src={Rectangle185} className="image-part"/>
+      content: <Image185 src={Rectangle185} className="image-part" />
     }
   ].map((slide, index) => {
     return { ...slide, onClick: () => setState({ goToSlide: index }) };
@@ -215,7 +218,7 @@ export const Home = () => {
           <TextSecondContent>
             <PreviewTitle>Normal Photos</PreviewTitle>
             <Grid container columnSpacing={{ xs: 1 }}>
-              <Grid item xs={12} sm={6} sx={{marginBottom: isSmallScreen ? '1rem' : '0'}}>
+              <Grid item xs={12} sm={6} sx={{ marginBottom: isSmallScreen ? '1rem' : '0' }}>
                 <PreviewDiv className="left-side">
                   <PreviewLabel>Before</PreviewLabel>
                   <PreviewImage src={normal1} />
@@ -232,7 +235,7 @@ export const Home = () => {
           <TextSecondContent className="second-360-line">
             <PreviewTitle>360 Photos</PreviewTitle>
             <Grid container columnSpacing={{ xs: 1 }} >
-              <Grid item xs={12} sm={6} sx={{marginBottom: isSmallScreen ? '1rem' : '0'}}>
+              <Grid item xs={12} sm={6} sx={{ marginBottom: isSmallScreen ? '1rem' : '0' }}>
                 <PreviewDiv className="left-side">
                   <PreviewLabel>Before</PreviewLabel>
                   <PreviewImage src={img3601} />
@@ -410,7 +413,7 @@ export const Home = () => {
                 </BrforeContenetImage>
                 <AfterSlideImage>
                   <CarouselPart
-                    style={{ width: "12%", height: "200px", margin: "0 auto", transform: "scale(1.5)"}}
+                    style={{ width: "12%", height: "200px", margin: "0 auto", transform: "scale(1.5)" }}
                     onTouchStart={handleTouchStart}
                     onTouchMove={handleTouchMove}
                     className="carousel-slider"
@@ -424,7 +427,7 @@ export const Home = () => {
                       className="slider-image-part"
                     />
                   </CarouselPart>
-                <AfterText><Liner />After</AfterText>
+                  <AfterText><Liner />After</AfterText>
                 </AfterSlideImage>
               </SliderInnerContent>
               <CarasoleContainer>
@@ -435,8 +438,8 @@ export const Home = () => {
       </OutputSample>
       <BeforeAfterContainer>
         <Container maxWidth='lg'>
-          <Grid container sx={{flexDirection: isSmallScreen ? 'column-reverse' : 'row'}}>
-            <Grid item container sm={12} md={6} sx={{paddingTop: isSmallScreen ? '5rem' : '0'}}>
+          <Grid container sx={{ flexDirection: isSmallScreen ? 'column-reverse' : 'row' }}>
+            <Grid item container sm={12} md={6} sx={{ paddingTop: isSmallScreen ? '5rem' : '0' }}>
               <MainDiv>
                 <TopDiv>
                   <SingleBox>
@@ -491,6 +494,42 @@ export const Home = () => {
           </Grid>
         </Container>
       </BeforeAfterContainer>
+
+
+      <NotSellingContainer>
+        <Container maxWidth='lg'>
+          <NotsellingBlock>
+            <Grid container className="row-revrese">
+              <Grid item xs={12} sm={12} md={6}>
+                <GredientBackImagePart>
+                  <SubHeadingText className="subheading">People Are Here. <br /> Why You're Not Selling?</SubHeadingText>
+                  <Subdescription className="description">Join the Future of Furniture Sales with Newroom: Projected to Take 93% of the Market by 2045</Subdescription>
+                  <DesignDreamRoom href="/">
+                    Sell Your Furniture
+                  </DesignDreamRoom>
+                  <CategoryWiseButton>
+                    <CategoryOutlineBtn>Room furniture</CategoryOutlineBtn>
+                    <CategoryOutlineBtn>Room accessories</CategoryOutlineBtn>
+                    <CategoryOutlineBtn>Sofa</CategoryOutlineBtn>
+                    <CategoryOutlineBtn>Gaming chair</CategoryOutlineBtn>
+                    <CategoryOutlineBtn>Computer</CategoryOutlineBtn>
+                    <CategoryOutlineBtn>Dining table</CategoryOutlineBtn>
+                  </CategoryWiseButton>
+                </GredientBackImagePart>
+              </Grid>
+              <Grid item xs={12} sm={12} md={6}>
+                <BackgroundImageMobile>
+                  <Image src={OldHome} alt="old-home" className="old-home-image" />
+                  <InnerIsolatedImage>
+                    <Image src={Isolatedright} alt="Isolatedright" className="Isolatedright" />
+                  </InnerIsolatedImage>
+                </BackgroundImageMobile>
+              </Grid>
+            </Grid>
+          </NotsellingBlock>
+        </Container>
+      </NotSellingContainer>
+
       <FAQContainer>
         <Container maxWidth='lg'>
           <FAQTag>F A Q</FAQTag>
@@ -501,7 +540,7 @@ export const Home = () => {
           </ContentTab>
         </Container>
       </FAQContainer>
-      
+
       <FeedbackContainer>
         <Container maxWidth='lg'>
           <FeedbackHeading>What Our Users Are Saying</FeedbackHeading>
@@ -556,33 +595,158 @@ export const Home = () => {
   );
 };
 
+
+
+const CategoryWiseButton = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 14px;
+  @media (max-width: 991px){
+    justify-content: center;
+  }
+  @media (max-width: 560px){
+    grid-gap: 6px;
+    justify-content: flex-start;
+  }
+`;
+const CategoryOutlineBtn = styled(Button)`
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #24B3B3;
+  padding: 6px 18px;
+  background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.42) 25.71%, rgba(8, 86, 86, 0.42) 80.11%);
+  border: 1px solid #0DB3B3;
+  border-radius: 5px;
+  @media (max-width: 560px){
+    padding: 6px 9px;
+    font-size: 12px;
+  }
+`;
+const SubHeadingText = styled.h2`
+  font-family: 'Gilroy-Bold';
+  font-size: 42px;
+  line-height: 52px;
+  background: linear-gradient(96.66deg, #0DB2B2 8.33%, #00FFA3 72.27%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  @media (max-width: 560px){
+    font-size: 24px;
+    line-height: 30px;
+  }
+  @media (max-width: 360px){
+    font-size: 21px;
+    line-height: 28px;
+  }
+`;
+const Subdescription = styled.p`
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-top: 15px;
+  @media (max-width: 560px){
+    font-size: 14px;
+  }
+`;
+const NotsellingBlock = styled.div`
+  background: linear-gradient(133.37deg, rgba(6, 69, 69, 0.26) 25.71%, rgba(8, 86, 86, 0.26) 80.11%);
+  border-radius: 25px;
+  text-align: left;
+  @media (max-width: 991px){
+    .row-revrese{
+      flex-direction: column-reverse;
+    }
+    max-width: 80%;
+    margin: auto;
+    text-align: center;
+  }
+  @media (max-width: 560px){
+    max-width: 90%;
+  }
+`;
+const NotSellingContainer = styled.div`
+  padding: 5rem 0 4rem;
+`;
+const GredientBackImagePart = styled.div`
+  background-image: url('/Mask group.png');
+  background-size: cover;
+  padding: 55px 42px 50px;
+  @media (max-width: 991px){
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+  @media (max-width: 560px){
+    padding: 26px 18px;
+  }
+`;
+const BackgroundImageMobile = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .old-home-image{
+    width: 100%;
+    height: 100%;
+    @media (max-width: 991px){
+      height: 500px;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+    }
+    @media (max-width: 560px){
+      height: 260px;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+    }
+  }
+`;
+const InnerIsolatedImage = styled.div`
+  position: absolute;
+  bottom:-5px;
+  right: 20px;
+  @media (max-width: 560px){
+    bottom:0px;
+  }
+  img{
+    @media (max-width: 560px){
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
+`;
 const SliderInnerContent = styled.div`
-width: 100%;
-position: relative;
-@media (max-width: 1024px){
-  margin-left: -40px;
-}
-@media (max-width: 991px){
-  margin-top: 4rem;
-}
-@media (max-width: 767px){
-  margin-left: 0;
-}
+  width: 100%;
+  position: relative;
+  @media (max-width: 1024px){
+    margin-left: -40px;
+  }
+  @media (max-width: 991px){
+    margin-top: 4rem;
+  }
+  @media (max-width: 767px){
+    margin-left: 0;
+  }
 `;
 const BrforeContenetImage = styled.div`
   position: relative;
   display: flex;
-    justify-content: flex-start;
+  justify-content: flex-start;
 `;
 const AfterSlideImage = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    margin-top: -135px;
-    margin-right: -190px;
-    @media (max-width: 767px){
-      margin-top: 5rem;
-      margin-right: 0;
-    }
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -135px;
+  margin-right: -190px;
+  @media (max-width: 767px){
+    margin-top: 5rem;
+    margin-right: 0;
+  }
 `;
 const CarouselPart = styled.div`
   &.carousel-slider{
@@ -602,7 +766,6 @@ const PreviewDiv = styled.div`
   &.left-side{
     align-items: flex-end;
     margin-right: 10px;
-
     @media (max-width: 599px) {
       align-items: center;
       margin-right: 0;
@@ -612,7 +775,6 @@ const PreviewDiv = styled.div`
   &.right-side{
     align-items: flex-start;
     margin-left: 10px;
-
     @media (max-width: 599px) {
       align-items: center;
       margin-left: 0;

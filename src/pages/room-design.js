@@ -40,8 +40,8 @@ export default function RoomDesign() {
           <FormControl className="custom-FormControle">
             <FormLabel number={1} text={"Choose your photo type"} />
             <SelectStyled>
-              <MenuItem value="">Normal Photo</MenuItem>
-              <MenuItem value="">Normal Photo</MenuItem>
+              <MenuItem value="Normal Photo">Normal Photo</MenuItem>
+              <MenuItem value="Normal Photo">Normal Photo</MenuItem>
               <MenuItem value="">Normal Photo</MenuItem>
             </SelectStyled>
           </FormControl>

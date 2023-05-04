@@ -2,6 +2,10 @@
   font-family: "Quicksand";
   src: url("../fonts/Quicksand-Regular.ttf");
 }
+@font-face {
+  font-family: "Quicksand";
+  src: url("../fonts/Quicksand-Medium.ttf");
+}
 
 @font-face {
   font-family: "Gilroy-Bold";
@@ -37,13 +41,22 @@ p {
 }
 
 .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
-  padding: 28px 36px;
+  padding: 20px 36px;
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: left;
+  color: #FFFFFF;
 }
 
 .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
   display: none;
 }
-
+.MuiSvgIcon-root{
+  display: none;
+}
 .MuiInputBase-formControl {
   position: relative;
   margin-bottom: 40px;
@@ -55,7 +68,7 @@ p {
   height: 8px;
   position: absolute;
   right: 14px;
-  top: 32px;
+  top: 26px;
   border-right: 2px solid #0DB3B3;
   border-top: 2px solid #0DB3B3;
   transform: rotate(135deg);
@@ -64,7 +77,7 @@ p {
 
 .MuiInputBase-formControl.Mui-focused::after {
   transform: rotate(-45deg);
-  top: 38px;
+  top: 32px;
 }
 
 .css-7xfirh-MuiButtonBase-root-MuiButton-root {
