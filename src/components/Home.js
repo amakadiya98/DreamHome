@@ -732,11 +732,25 @@ const SliderInnerContent = styled.div`
   @media (max-width: 767px){
     margin-left: 0;
   }
+
+  @media (max-width: 599px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+  }
 `;
 const BrforeContenetImage = styled.div`
   position: relative;
   display: flex;
   justify-content: flex-start;
+
+  @media (max-width: 599px) {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 `;
 const AfterSlideImage = styled.div`
   display: flex;
@@ -746,6 +760,13 @@ const AfterSlideImage = styled.div`
   @media (max-width: 767px){
     margin-top: 5rem;
     margin-right: 0;
+  }
+
+  @media (max-width: 599px) {
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
   }
 `;
 const CarouselPart = styled.div`
@@ -996,17 +1017,11 @@ const BeforeText = styled.div`
     left: 38%;
   }
 
-  @media screen and (max-width: 500px) {
-    left: 48%;
+  @media screen and (max-width: 599px) {
+    position: unset;
+    margin-bottom: -10px;
   }
 
-  @media screen and (max-width: 450px) {
-    left: 45%;
-  }
-
-  @media screen and (max-width: 350px) {
-    left: 35%;
-  }
 `;
 const Liner = styled.span`
   display: block;
@@ -1036,17 +1051,11 @@ const AfterText = styled.div`
     top: -15%;
     left: 50%;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 599px) {
+    position: relative;
+    margin-bottom: 10px;
+    left: unset;
     right: unset;
-    left: 50%;
-  }
-
-  @media screen and (max-width: 450px) {
-    left: 45%;
-  }
-
-  @media screen and (max-width: 350px) {
-    left: 35%;
   }
 `;
 
@@ -1161,6 +1170,10 @@ const LeftStep = styled.div`
   height: 7rem;
   color: #fff;
   border-radius: 4rem 10px 10px 4rem;
+
+  @media (max-width: 599px) {
+    align-items: center;
+  }
 `;
 
 const RightStep = styled.div`
@@ -1169,6 +1182,9 @@ const RightStep = styled.div`
   height: 7rem;
   color: #fff;
   border-radius: 10px 4rem 4rem 10px;
+  @media (max-width: 599px) {
+    align-items: center;
+  }
 `;
 
 const LeftStepCount = styled.div`
@@ -1197,6 +1213,7 @@ width: 94px;
   min-width: 94px;
   min-height: 94px;
   margin-top: -2px;
+
 `;
 
 const StepText = styled.p`
@@ -1257,6 +1274,7 @@ const SubHeading = styled.h2`
   @media screen and (max-width: 599px) {
     font-size: 15px;
     line-height: 19px;
+    margin-bottom: 15px;
   }
 `;
 
@@ -1291,6 +1309,7 @@ const Tag = styled.p`
     font-size: 14px;
     line-height: 18px;
     text-align: center;
+    font-weight: 400;
   }
 `;
 
@@ -1302,6 +1321,11 @@ const StrongTag = styled.p`
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+  @media screen and (max-width: 599px) {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+  }
 `;
 
 const TopSection = styled.div`
@@ -1320,6 +1344,10 @@ const TopSection = styled.div`
     overflow: visible;
     z-index: 1;
     background-color: transparent;
+
+    @media (max-width: 767px) {
+      padding: 2rem 0 50px!important;
+    }
   }
   
 `;
@@ -1349,7 +1377,7 @@ const DesignDreamRoom = styled(Link)`
   @media (max-width: 599px) {
     font-size: 16px;
     line-height:20px;
-    padding: 16px 12px;
+    padding: 16px 32px;
   }
 `;
 const DownBtnArrow = styled(Link)`
@@ -1384,6 +1412,7 @@ const HowToUseTag = styled.p`
   @media screen and (max-width: 599px) {
     font-size: 30px;
     line-height: 37px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -1572,17 +1601,23 @@ const Image175 = styled(Image)`
     left: 15%;
   }
 
-  @media screen and (max-width: 500px) {
-    left: 5%;
-  }
-
-  @media screen and (max-width: 450px) {
-    width: 300px;
+  @media screen and (max-width: 599px) {
+    position: unset;
+    width: 425px;
     height: auto;
   }
 
-  @media screen and (max-width: 350px) {
-    left: 0;
+  @media screen and (max-width: 450px) {
+    width: 365px;
+    height: auto;
+  }
+
+  @media screen and (max-width: 375px) {
+    width: 320px;
+  }
+
+  @media screen and (max-width: 330px) {
+    width: 280px;
   }
 `;
 

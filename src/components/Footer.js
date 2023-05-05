@@ -63,7 +63,8 @@ const SocialImage = styled(Image)`
 const FooterText = styled.p`
   color: #ffff;
   font-size: 18px;
-  font-weight: 100;
+  font-weight: 300;
+  font-family: "Quicksand";
   @media (max-width:425px){
     font-size: 16px;
     text-align: center;
