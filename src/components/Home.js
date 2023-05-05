@@ -466,7 +466,7 @@ export const Home = () => {
                     <FourGridImage src={Rectangle194} alt="1" />
                     <DecoratedText>< Liner />After</DecoratedText>
                   </SingleBox>
-                  <ImageContainer>
+                  <ImageContainer className="second-child">
                     <LeftImage src={secondLeft} alt="leftImg" />
                     <BfText>Before</BfText>
                     <RightImage src={secondRight} alt="RightImg" />
@@ -674,6 +674,10 @@ const NotsellingBlock = styled.div`
 `;
 const NotSellingContainer = styled.div`
   padding: 5rem 0 4rem;
+
+  @media (max-width: 450px) {
+    padding-top: 2rem;
+  }
 `;
 const GredientBackImagePart = styled.div`
   background-image: url('/Mask group.png');
@@ -816,15 +820,11 @@ const BfText = styled.div`
   color: #fff;
   position: absolute;
   bottom: 22%;
-  left: 15%;
+  left: 9%;
 
-  @media screen and (max-width: 400px) {
-    bottom: 28%;
-    left: 10%;
-  }
-
-  @media screen and (max-width: 350px) {
-    left: 5%;
+  @media screen and (max-width: 420px) {
+    bottom: 22%;
+    left: 9%;
   }
 `;
 
@@ -843,14 +843,11 @@ const AfText = styled.div`
   bottom: 22%;
   right: 10%;
 
-  @media screen and (max-width: 400px) {
-    bottom: 28%;
-    right: 22%;
+  @media screen and (max-width: 420px) {
+    bottom: 22%;
+    right: 3%;
   }
 
-  @media screen and (max-width: 350px) {
-    right: 30%;
-  }
 `;
 const ImageContainer = styled.div`
   display: flex;
@@ -863,6 +860,21 @@ const ImageContainer = styled.div`
   @media screen and (min-width: 600px) {
     display: none;
   }
+
+  @media screen and (max-width: 420px) {
+    width: 300px;
+    height: 250px;
+    margin-right: 2rem;
+
+    &.second-child{
+      margin-top: -50px;
+    }
+  }
+
+  @media screen and (max-width: 330px) {
+    margin-left: -1rem;
+    margin-right: 0;
+  }
 `;
 
 const LeftImage = styled(Image)`
@@ -873,33 +885,28 @@ const LeftImage = styled(Image)`
   height: 147px;
   z-index: 10;
 
-  @media screen and (max-width: 400px) {
-    width: 140px;
-    height: 125px;
-    bottom: 50%;
+  @media screen and (max-width: 420px) {
+    width: 40%;
+    height: auto;
+    left: 7%;
+    bottom: 46%;
   }
 
-  @media screen and (max-width: 350px) {
-    left: 0;
-  }
 `;
 
 const RightImage = styled(Image)`
   position: absolute;
-  right: 5%;
+  right: 9%;
   width: 226px;
   height: 202px;
   z-index: 6;
 
-  @media screen and (max-width: 400px) {
-    right: 15%;
-    width: 200px;
-    height: 180px;
+  @media screen and (max-width: 420px) {
+    right: 0%;
+    width: 60%;
+    height: auto;
   }
 
-  @media screen and (max-width: 350px) {
-    right: 27%;
-  }
 `;
 const ContentTab = styled.div`
   width: 95%;
@@ -1378,6 +1385,10 @@ const DesignDreamRoom = styled(Link)`
     font-size: 16px;
     line-height:20px;
     padding: 16px 32px;
+  }
+
+  @media (max-width: 370px) {
+    padding: 10px 20px;
   }
 `;
 const DownBtnArrow = styled(Link)`
