@@ -2,6 +2,7 @@ import Link from "next/link";
 import * as React from 'react';
 import styled from "@emotion/styled";
 import { Container, Grid, useMediaQuery } from "@mui/material";
+import Box from "@mui/material/Box";
 import Image from "next/image";
 import Button from "@mui/material/Button";
 import userFeeback from "@/assets/userFeeback.png";
@@ -39,7 +40,7 @@ import { UseMediaQuery } from "@mui/material";
 // import Carousel from "react-spring-3d-carousel";
 // import uuidv4 from "uuid";
 import { config } from "react-spring";
-
+import phoneContent from "@/assets/phoneContent.jpg"
 import loadable from "@loadable/component";
 const Carousel = loadable(() => import("react-spring-3d-carousel"))
 
@@ -238,13 +239,13 @@ export const Home = () => {
               <Grid item xs={12} sm={6} sx={{ marginBottom: isSmallScreen ? '1rem' : '0' }}>
                 <PreviewDiv className="left-side">
                   <PreviewLabel>Before</PreviewLabel>
-                  <PreviewImage src={img3601} />
+                  <PreviewImage src={img3601}/>
                 </PreviewDiv>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <PreviewDiv className="right-side">
                   <PreviewLabel>After</PreviewLabel>
-                  <PreviewImage src={img3602} />
+                  <PreviewImage src={img3602}/>
                 </PreviewDiv>
               </Grid>
             </Grid>
@@ -521,7 +522,42 @@ export const Home = () => {
                 <BackgroundImageMobile>
                   <Image src={OldHome} alt="old-home" className="old-home-image" />
                   <InnerIsolatedImage>
-                    <Image src={Isolatedright} alt="Isolatedright" className="Isolatedright" />
+                  <Image
+                      style={{ pointerEvents: "none", zIndex: "2", position: "relative" }}
+                      src={Isolatedright}
+                      alt="Isolatedright"
+                      className="Isolatedright"
+                    />
+                    <Box
+                        sx={{
+                            height: "379px",
+                            position: "absolute",
+                            rotate: "-4.6deg",
+                            top: "15px",
+                            width: "176px",
+                            left: isSmallScreen ? "27px":"38px",
+                            borderRadius: "10px",
+                            zIndex: "1",
+
+                            // For mobile phones
+                            "@media (max-width: 560px)":{
+                            height: "191px",
+                            top:  "6px",
+                            width: "88px",
+                            left: "19px",
+                            },
+
+                            // Phone scroll
+                            overflowX: "auto",
+
+                            // Hide phone scrollbar
+                            msOverflowStyle: "none", // IE and Edge
+                            scrollbarWidth: "none", // Firefox
+                            "&::-webkit-scrollbar": { display: "none" }, // Chrome, Safari and Opera
+                        }}
+                    >
+                        <Image style={{ width: "178px", height: "auto" }} src={phoneContent} alt="Isolatedright" className="Isolatedright" />
+                    </Box>
                   </InnerIsolatedImage>
                 </BackgroundImageMobile>
               </Grid>
@@ -1510,7 +1546,7 @@ const PreviewLabel = styled.p`
 const PreviewImage = styled(Image)`
   width: 480px;
   height: 418px;
-
+  
   @media (max-width: 1100px) {
     width: 90%;
     height: auto;
