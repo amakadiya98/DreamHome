@@ -4,6 +4,9 @@ import styled from "@emotion/styled";
 import { Container, Grid, useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
 import Image from "next/image";
+import { Pannellum } from "pannellum-next-revised-anir";
+import "pannellum-next-revised-anir/es/css/pannellum.css";
+import "pannellum-next-revised-anir/es/css/style-textInfo.css";
 import Button from "@mui/material/Button";
 import userFeeback from "@/assets/userFeeback.png";
 import Ellipse4 from '@/assets/Ellipse4.png';
@@ -40,6 +43,7 @@ import { UseMediaQuery } from "@mui/material";
 // import Carousel from "react-spring-3d-carousel";
 // import uuidv4 from "uuid";
 import { config } from "react-spring";
+import { useRef, useState } from "react";
 import phoneContent from "@/assets/phoneContent.jpg"
 import loadable from "@loadable/component";
 const Carousel = loadable(() => import("react-spring-3d-carousel"))
@@ -55,6 +59,77 @@ const getTouches = (evt) => {
 export const Home = () => {
   const isSmallScreen = useMediaQuery('(max-width: 599px)');
   const isXSScreen = useMediaQuery('(max-width: 350px)');
+
+  const pano1Ref = useRef(null);
+  const pano2Ref = useRef(null);
+  // Initialize two variable to track the first and second Pannellum component's visibility state
+  let pannellum1 = false;
+  let pannellum2 = false;
+
+  const config = {
+
+    showZoomCtrl: false,
+    showControls: false,
+    autoLoad: true,
+  };
+
+  const togglePannellum = (arg) => {
+    if (arg === '1') {
+      pannellum1 = true;
+      pannellum2 = false;
+    } else if (arg === '2') {
+      pannellum1 = false;
+      pannellum2 = true;
+    }
+  }
+
+  const renderPannellum1 = () => {
+    // If the first Pannellum component is not visible or the reference is null, return early
+    if (!pannellum1 || !pano1Ref.current) return;
+
+    // Get the viewer object for the first Pannellum component
+
+    const pano1Viewer = pano1Ref.current.getViewer();
+    if (!pano1Viewer) return;
+
+   // Get the pitch and yaw of the first Pannellum component
+    const newYaw = pano1Viewer.getYaw();
+    const newPitch = pano1Viewer.getPitch();
+
+
+    if (!pano2Ref.current) return;
+
+    const pano2Viewer = pano2Ref.current.getViewer();
+    if (!pano2Viewer) return;
+
+    window.requestAnimationFrame(() => {
+      // Set the pitch and yaw of the Second Pannellum component
+      pano2Viewer?.setPitch(newPitch,1);
+      pano2Viewer?.setYaw(newYaw,1);
+    });
+  };
+
+  const renderPannellum2 = () => {
+    if (!pannellum2 || !pano2Ref.current) return;
+
+    const pano2Viewer = pano2Ref.current.getViewer();
+    if (!pano2Viewer) return;
+
+    const newYaw = pano2Viewer.getYaw();
+    const newPitch = pano2Viewer.getPitch();
+
+    if (!pano2Ref.current) return;
+
+    const pano1Viewer = pano1Ref.current.getViewer();
+    if (!pano1Viewer) return;
+    window.requestAnimationFrame(() => {
+      pano1Viewer.setPitch(newPitch,1);
+      pano1Viewer.setYaw(newYaw,1);
+    });
+
+  };
+
+  
   const FeedBackUserDetails = [
     {
       src: Ellipse4,
@@ -93,6 +168,8 @@ export const Home = () => {
       details: "I was able to visualize my dream home with this tool. It's amazing how realistic the virtual staging looks, and it helped me make an informed decision on my purchase.",
     },
   ];
+
+  
   const [state, setState] = React.useState({
     goToSlide: 0,
     offsetRadius: 8,
@@ -252,6 +329,9 @@ const handleMouseUp = (index) => {
   //   }
   // };
 
+
+  
+
   return (
     <ContainerWrapper>
       <TopSection className="first-section">
@@ -293,20 +373,48 @@ const handleMouseUp = (index) => {
           </TextSecondContent>
           <TextSecondContent className="second-360-line">
             <PreviewTitle>360 Photos</PreviewTitle>
-            <Grid container columnSpacing={{ xs: 1 }} >
-              <Grid item xs={12} sm={6} sx={{ marginBottom: isSmallScreen ? '1rem' : '0' }}>
-                <PreviewDiv className="left-side">
-                  <PreviewLabel>Before</PreviewLabel>
-                  <PreviewImage src={img3601}/>
-                </PreviewDiv>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <PreviewDiv className="right-side">
-                  <PreviewLabel>After</PreviewLabel>
-                  <PreviewImage src={img3602}/>
-                </PreviewDiv>
-              </Grid>
-            </Grid>
+            <Grid container columnSpacing={{ xs: 1 }}>
+          <Grid item xs={12} sm={6} sx={{ marginBottom: isSmallScreen ? '1rem' : '0' }}>
+          <PreviewDiv className="left-side">
+            <PreviewLabel>Before</PreviewLabel>
+
+            <Pannellum
+              width="500px"
+              height="400px"
+              image="https://static.vecteezy.com/system/resources/previews/002/081/165/large_2x/360-panorama-of-an-empty-modern-interior-room-in-3d-rendering-free-photo.jpg"
+              config={config}
+              northOffset={44}
+              pitch={0}
+              yaw={0}
+              autoLoad
+              id='1'
+              onMousedown={() => togglePannellum('1')}
+              ref={pano1Ref}
+              onRender={renderPannellum1}
+            />
+            </PreviewDiv>
+
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <PreviewDiv className="right-side">
+            <PreviewLabel>After</PreviewLabel>
+            <Pannellum
+              width="500px"
+              height="400px"
+              image="https://images.unsplash.com/photo-1592643547561-79bfde0371d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1973&q=80"
+              config={config}
+              pitch={0}
+              northOffset={44}
+              id='2'
+              yaw={0}
+              autoLoad
+              ref={pano2Ref}
+              onMousedown={() => togglePannellum('2')}
+              onRender={renderPannellum2}
+            />
+            </PreviewDiv>
+          </Grid>
+        </Grid>
           </TextSecondContent>
         </Container>
       </PreviewContainer>
