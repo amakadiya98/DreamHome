@@ -11,8 +11,8 @@ export default function SignupVerification() {
   return (
     <>
       <Head>
-        <title>Newroom | Email Singup</title>
-        <meta name="description" content="Newroom app Email Singup" />
+        <title>NewRoom | Email Singup</title>
+        <meta name="description" content="NewRoom app Email Singup" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -46,6 +46,7 @@ const Carousel = loadable(() => import("react-spring-3d-carousel"))
 
 
 const getTouches = (evt) => {
+  console.log(evt.clientX)
   return (
     evt.touches || evt.originalEvent.touches // browser API
   );
@@ -93,7 +94,7 @@ export const Home = () => {
     },
   ];
   const [state, setState] = React.useState({
-    goToSlide: 8,
+    goToSlide: 0,
     offsetRadius: 8,
     showNavigation: false,
     enableSwipe: true,
@@ -104,10 +105,10 @@ export const Home = () => {
   const handleKeyDown = (e) => {
     switch (e.keyCode) {
       case 37:
-        setState({ goToSlide: state.goToSlide - 1 });
+        setState({ ...state, goToSlide: state.goToSlide - 1 });
         break;
       case 39:
-        setState({ goToSlide: state.goToSlide + 1 });
+        setState({ ...state, goToSlide: state.goToSlide + 1 });
         break;
       default:
         break;
@@ -127,72 +128,129 @@ export const Home = () => {
     setExpanded(expanded !== panel ? panel : false);
   };
 
+  const [touchStart, setTouchStart] = React.useState(null)
+const [touchEnd, setTouchEnd] = React.useState(null)
+
+// the required distance between touchStart and touchEnd to be detected as a swipe
+const minSwipeDistance = 10 
+
+const handleStart = (clientX) => {
+  setTouchEnd(null)
+  setTouchStart(clientX)
+}
+
+const handleMove = (clientX) => {
+  setTouchEnd(clientX)
+}
+
+const onTouchStart = (e) => {
+  handleStart(e.targetTouches[0].clientX)
+}
+
+const onTouchMove = (e) => {
+  handleMove(e.targetTouches[0].clientX)
+}
+
+const onTouchEnd = (index) => {
+  if (!touchStart || !touchEnd) return
+  const distance = touchStart - touchEnd
+  const isLeftSwipe = distance > minSwipeDistance
+  const isRightSwipe = distance < -minSwipeDistance
+  if(isLeftSwipe) {
+    setState({ ...state, goToSlide: state.goToSlide + 1 });
+  }
+
+  if(isRightSwipe) {
+    setState({ ...state, goToSlide: parseInt(state.goToSlide) - 1 })
+  }
+
+  if(!isRightSwipe && !isLeftSwipe && index !== undefined) {
+    setState({ ...state, goToSlide: index })
+  }
+}
+
+
+const handleMouseDown = (mouseDownEvent) => {
+  mouseDownEvent.preventDefault();
+  handleStart(mouseDownEvent.clientX);
+}
+
+const handleMouseMove = (mouseMoveEvent) => {
+  mouseMoveEvent.preventDefault();
+  handleMove(mouseMoveEvent.clientX);
+}
+
+const handleMouseUp = (index) => {
+  onTouchEnd(index);
+}
+
+
   var slides = [
     {
       key: 1,
-      content: <Image196 src={Rectangle196} className="image-part" />
+      content: <Image196 onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={() => handleMouseUp(0)} src={Rectangle196} className="image-part" />
     },
     {
       key: 2,
-      content: <Image195 src={Rectangle195} className="image-part" />
+      content: <Image195 onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={() => handleMouseUp(1)} src={Rectangle195} className="image-part" />
     },
     {
       key: 3,
-      content: <Image197 src={Rectangle197} className="image-part" />
+      content: <Image197 onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={() => handleMouseUp(2)} src={Rectangle197} className="image-part" />
     },
     {
       key: 4,
-      content: <Image184 src={Rectangle184} className="image-part" />
+      content: <Image184 onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={() => handleMouseUp(3)} src={Rectangle184} className="image-part" />
     },
     {
       key: 5,
-      content: <Image185 src={Rectangle185} className="image-part" />
+      content: <Image185 onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={() => handleMouseUp(4)} src={Rectangle185} className="image-part" />
     }
   ].map((slide, index) => {
-    return { ...slide, onClick: () => setState({ goToSlide: index }) };
+    return { ...slide };
   });
 
-  const handleTouchStart = (evt) => {
-    if (!state.enableSwipe) {
-      return;
-    }
+  // const handleTouchStart = (evt) => {
+  //   if (!state.enableSwipe) {
+  //     return;
+  //   }
 
-    const firstTouch = getTouches(evt)[0];
-    setState({
-      ...state,
-      xDown: firstTouch.clientX,
-      yDown: firstTouch.clientY
-    });
-  };
+  //   const firstTouch = getTouches(evt)[0];
+  //   setState({
+  //     ...state,
+  //     xDown: firstTouch.clientX,
+  //     yDown: firstTouch.clientY
+  //   });
+  // };
 
-  const handleTouchMove = (evt) => {
-    if (!state.enableSwipe || (!state.xDown && !state.yDown)) {
-      return;
-    }
+  // const handleTouchMove = (evt) => {
+  //   if (!state.enableSwipe || (!state.xDown && !state.yDown)) {
+  //     return;
+  //   }
 
-    let xUp = evt.touches[0].clientX;
-    let yUp = evt.touches[0].clientY;
+  //   let xUp = evt.touches[0].clientX;
+  //   let yUp = evt.touches[0].clientY;
 
-    let xDiff = state.xDown - xUp;
-    let yDiff = state.yDown - yUp;
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-      if (xDiff > 0) {
-        /* left swipe */
-        setState({
-          goToSlide: state.goToSlide + 1,
-          xDown: null,
-          yDown: null
-        });
-      } else {
-        /* right swipe */
-        setState({
-          goToSlide: state.goToSlide - 1,
-          xDown: null,
-          yDown: null
-        });
-      }
-    }
-  };
+  //   let xDiff = state.xDown - xUp;
+  //   let yDiff = state.yDown - yUp;
+  //   if (Math.abs(xDiff) > Math.abs(yDiff)) {
+  //     if (xDiff > 0) {
+  //       /* left swipe */
+  //       setState({
+  //         goToSlide: state.goToSlide + 1,
+  //         xDown: null,
+  //         yDown: null
+  //       });
+  //     } else {
+  //       /* right swipe */
+  //       setState({
+  //         goToSlide: state.goToSlide - 1,
+  //         xDown: null,
+  //         yDown: null
+  //       });
+  //     }
+  //   }
+  // };
 
   return (
     <ContainerWrapper>
@@ -414,10 +472,9 @@ export const Home = () => {
                 </BrforeContenetImage>
                 <AfterSlideImage>
                   <CarouselPart
-                    style={{ width: "12%", height: "200px", margin: "0 auto", transform: "scale(1.5)" }}
-                    onTouchStart={handleTouchStart}
-                    onTouchMove={handleTouchMove}
+                    // style={{ width: "12%", height: "200px", margin: "0 auto", transform: "scale(1.5)" }}
                     className="carousel-slider"
+                    onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}
                   >
                     <Carousel
                       slides={slides}
@@ -504,7 +561,7 @@ export const Home = () => {
               <Grid item xs={12} sm={12} md={6}>
                 <GredientBackImagePart>
                   <SubHeadingText className="subheading">People Are Here. <br /> Why You're Not Selling?</SubHeadingText>
-                  <Subdescription className="description">Join the Future of Furniture Sales with Newroom: Projected to Take 93% of the Market by 2045</Subdescription>
+                  <Subdescription className="description">Join the Future of Furniture Sales with NewRoom: Projected to Take 93% of the Market by 2045</Subdescription>
                   <DesignDreamRoom href="/">
                     Sell Your Furniture
                   </DesignDreamRoom>
@@ -811,6 +868,14 @@ const AfterSlideImage = styled.div`
 `;
 const CarouselPart = styled.div`
   &.carousel-slider{
+    width: 12%;
+    height: 200px;
+    margin: 0 auto;
+    transform: scale(1.5);
+    @media (max-width: 599px){
+      width: 100%;
+      transform: scale(1.4);
+    }
     img{
       width: auto;
       opacity: 1 !important;

@@ -31,8 +31,8 @@ export default function RoomDesign() {
   return (
     <>
         <Head>
-          <title>Newroom | Design Room Preview</title>
-          <meta name="description" content="Newroom app sign in with google" />
+          <title>NewRoom | Design Room Preview</title>
+          <meta name="description" content="NewRoom app sign in with google" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>

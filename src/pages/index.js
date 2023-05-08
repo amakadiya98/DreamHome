@@ -11,7 +11,7 @@ export default function index() {
     <>
       <Head>
         <title>Free AI Tool: Room Design</title>
-        <meta name="description" content="Newroom app" />
+        <meta name="description" content="NewRoom app" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

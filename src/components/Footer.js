@@ -18,7 +18,7 @@ export const Footer = () => {
       <Grid container spacing={2}>
         <FooterArea>
           <Grid>
-            <FooterText>Contact support: contact@newroom.io</FooterText>
+            <FooterText>Contact support: contact@NewRoom.io</FooterText>
           </Grid>
           <Grid>
               <SocialImage src={twitter} alt="Twitter" />

@@ -12,8 +12,8 @@ export default function RoomDesign() {
   return (
     <>
       <Head>
-        <title>Newroom | Loading</title>
-        <meta name="description" content="Newroom app loading" />
+        <title>NewRoom | Loading</title>
+        <meta name="description" content="NewRoom app loading" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
